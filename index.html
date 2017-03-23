@@ -9,22 +9,31 @@
       <button v-on:click="add">Next</button>
       <button v-on:click="remove">Previous</button>
       <transition-group name="question" tag="ul">
-        <li v-for="question in questions" v-bind:key="question" class="question-item">
+        <li v-for="question in questionsList" v-bind:key="question" class="question-item">
           {{ question }}
+        </li>
+        <li v-for="answer in answerList" v-bind:key="answer" class="question-item">
+          {{ answer }}
         </li>
       </transition-group>
     </div>
 
     <!-- Message Input -->
-    <input v-model="message" placeholder="...">
+    <input
+      v-model="newAnswer"
+      v-on:keyup.enter="addAnswerToQuestion"
+      placeholder="..."
+      autofocus
+    >
   </div>
 
   <script>
     new Vue({
       el: '#app',
       data: {
-        message: '',
-        questions: [
+        newAnswer: '',
+        answerList: [],
+        questionsList: [
           'What\'s your name?',
           'What\'s email address?',
           'What\'s your phone number?',
@@ -33,16 +42,27 @@
       },
       methods: {
         logList: function () {
-          console.log(this.questions.length)
+          console.log(this.questionsList.length)
         },
         add: function () {
           this.logList()
-          this.questions.splice(this.questions.length, 0, this.questions[this.countOfQuestions++])
+          this.questionsList.splice(this.questionsList.length, 0, this.questionsList[this.countOfQuestions++])
         },
         remove: function () {
           this.logList()
-          this.questions.splice(this.questions.length - 1, 1)
+          this.questionsList.splice(this.questionsList.length - 1, 1)
         },
+        addAnswerToQuestion: function () {
+          //trim() is used to remove whitespace from both ends of a string
+          this.newAnswer = this.newAnswer.trim()
+          //if answer is not an empty string
+          if (this.newAnswer) {
+            //Push an object containing the answer to the taskList array
+            this.answerList.push(this.newAnswer)
+            //Reset newTask to an empty string so the input field is cleared
+            this.newAnswer = ''
+          }
+        }
       }
     })
   </script>
