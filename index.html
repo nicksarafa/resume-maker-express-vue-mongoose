@@ -5,8 +5,18 @@
 </head>
 <body>
   <div id="app">
-    <p>Message is: {{ message }}</p>
-    <input v-model="message" placeholder="edit me">
+    <div>
+      <button v-on:click="add">Next</button>
+      <button v-on:click="remove">Previous</button>
+      <transition-group name="question" tag="ul">
+        <li v-for="question in questions" v-bind:key="question" class="question-item">
+          {{ question }}
+        </li>
+      </transition-group>
+    </div>
+
+    <!-- Message Input -->
+    <input v-model="message" placeholder="...">
   </div>
 
   <script>
@@ -14,15 +24,41 @@
       el: '#app',
       data: {
         message: '',
+        questions: [
+          'What\'s your name?',
+          'What\'s email address?',
+          'What\'s your phone number?',
+        ],
+        countOfQuestions: 0,
       },
       methods: {
-        humanizeURL: function (url) {
-          return url
-            .replace(/^https?:\/\//, '')
-            .replace(/\/$/, '')
-        }
+        logList: function () {
+          console.log(this.questions.length)
+        },
+        add: function () {
+          this.logList()
+          this.questions.splice(this.questions.length, 0, this.questions[this.countOfQuestions++])
+        },
+        remove: function () {
+          this.logList()
+          this.questions.splice(this.questions.length - 1, 1)
+        },
       }
     })
   </script>
+  <style>
+    body {
+      text-align: center;
+    }
+    .question-item {
+    }
+    .question-enter-active, .question-leave-active {
+      transition: all 1s;
+    }
+    .question-enter, .question-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  </style>
 </body>
 </html>
