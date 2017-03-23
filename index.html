@@ -33,12 +33,12 @@
       data: {
         newAnswer: '',
         answerList: [],
+        countOfQuestions: 0,
         questionsList: [
           'What\'s your name?',
           'What\'s email address?',
           'What\'s your phone number?',
         ],
-        countOfQuestions: 0,
       },
       methods: {
         logList: function () {
@@ -57,9 +57,9 @@
           this.newAnswer = this.newAnswer.trim()
           //if answer is not an empty string
           if (this.newAnswer) {
-            //Push an object containing the answer to the taskList array
+            //Push an object containing the answer to the answerList array
             this.answerList.push(this.newAnswer)
-            //Reset newTask to an empty string so the input field is cleared
+            //Reset newAnswer to an empty string so the input field is cleared
             this.newAnswer = ''
           }
         }
