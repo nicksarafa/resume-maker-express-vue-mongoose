@@ -6,25 +6,24 @@
 <body>
   <div id="app">
     <div>
-      <button v-on:click="add">Next</button>
-      <button v-on:click="remove">Previous</button>
       <transition-group name="question" tag="ul">
-        <li v-for="question in questionsList" v-bind:key="question" class="question-item">
-          {{ question }}
+        <li v-if="questionsList.length" v-bind:key="questionsList[countOfQuestions]" class="question-item">
+          {{ questionsList[countOfQuestions] }}
         </li>
-        <li v-for="answer in answerList" v-bind:key="answer" class="question-item">
+        <span v-for="answer in answerList" v-bind:key="answer" class="question-item">
           {{ answer }}
-        </li>
+        </span>
       </transition-group>
     </div>
 
-    <!-- Message Input -->
+    <!-- Answer Input -->
     <input
       v-model="newAnswer"
-      v-on:keyup.enter="addAnswerToQuestion"
+      v-on:keyup.enter="submitAnswer"
       placeholder="..."
       autofocus
     >
+    <button v-on:click="nextQuestion">Next</button>
   </div>
 
   <script>
@@ -38,21 +37,14 @@
           'What\'s your name?',
           'What\'s email address?',
           'What\'s your phone number?',
+          'Where did you attend University?',
         ],
       },
       methods: {
-        logList: function () {
-          console.log(this.questionsList.length)
-        },
-        add: function () {
-          this.logList()
+        nextQuestion: function () {
           this.questionsList.splice(this.questionsList.length, 0, this.questionsList[this.countOfQuestions++])
         },
-        remove: function () {
-          this.logList()
-          this.questionsList.splice(this.questionsList.length - 1, 1)
-        },
-        addAnswerToQuestion: function () {
+        submitAnswer: function () {
           //trim() is used to remove whitespace from both ends of a string
           this.newAnswer = this.newAnswer.trim()
           //if answer is not an empty string
@@ -61,6 +53,8 @@
             this.answerList.push(this.newAnswer)
             //Reset newAnswer to an empty string so the input field is cleared
             this.newAnswer = ''
+            //Proceed to next question
+            this.nextQuestion()
           }
         }
       }
@@ -77,7 +71,6 @@
     }
     .question-enter, .question-leave-to {
       opacity: 0;
-      transform: translateY(30px);
     }
   </style>
 </body>
