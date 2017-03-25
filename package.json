@@ -16,6 +16,7 @@
     "mongodb": "^2.2.25"
   },
   "devDependencies": {
+    "cookie-parser": "^1.4.3",
     "nodemon": "^1.11.0"
   }
 }

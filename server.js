@@ -2,9 +2,14 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
+// Activate cookieParser
+const cookieParser = require('cookie-parser')
+
 // add middleware (like body-parser) via `use` method
 // urlencoded method extracts data from <form /> and adds to the body of the request object
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(cookieParser())
 
 // Connect to mLab mongodb client
 const MongoClient = require('mongodb').MongoClient
@@ -29,6 +34,8 @@ MongoClient.connect(MongoDbUri, (err, database) => {
 // Push index file to client
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
+  console.log('Cookies: ', req.cookies)
+  console.log('Signed Cookies: ', req.signedCookies)
 })
 
 // Post quotes
