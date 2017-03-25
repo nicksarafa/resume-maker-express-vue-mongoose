@@ -5,6 +5,15 @@
 </head>
 <body>
   <div id="app">
+
+    <!-- CRUD form -->
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name">
+      <input type="text" placeholder="quote" name="quote">
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Questions List -->
     <div>
       <transition-group name="question" tag="ul">
         <li v-if="questionsList.length" v-bind:key="questionsList[countOfQuestions]" class="question-item">
