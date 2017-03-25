@@ -2,6 +2,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
+// Connect to mLab mongodb client
+const MongoClient = require('mongodb').MongoClient
+
+MongoClient.connect('link-to-mongodb', (err, database) => {
+  // start the server
+})
+
 // add middleware (like body-parser) via `use` method
 // urlencoded method extracts data from <form /> and adds to the body of the request object
 app.use(bodyParser.urlencoded({ extended: true }))
