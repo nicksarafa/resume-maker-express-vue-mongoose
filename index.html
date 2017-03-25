@@ -6,33 +6,30 @@
 <body>
   <div id="app">
 
-    <!-- CRUD form -->
-    <form action="/quotes" method="POST">
-      <input type="text" placeholder="name" name="name">
-      <input type="text" placeholder="quote" name="quote">
-      <button type="submit">Submit</button>
-    </form>
-
     <!-- Questions List -->
     <div>
-      <transition-group name="question" tag="ul">
+      <ul>
         <li v-if="questionsList.length" v-bind:key="questionsList[countOfQuestions]" class="question-item">
           {{ questionsList[countOfQuestions] }}
         </li>
         <span v-for="answer in answerList" v-bind:key="answer" class="question-item">
           {{ answer }}
         </span>
-      </transition-group>
+      </ul>
     </div>
 
     <!-- Answer Input -->
-    <input
-      v-model="newAnswer"
-      v-on:keyup.enter="submitAnswer"
-      placeholder="..."
-      autofocus
-    >
-    <button v-on:click="nextQuestion">Next</button>
+    <form action="/answers" method="POST">
+      <input
+        type="text"
+        name="answer"
+        v-model="newAnswer"
+        v-on:keyup.enter="submitAnswer"
+        placeholder="..."
+        autofocus
+      >
+      <button type="submit" v-on:click="nextQuestion">Next</button>
+    </form>
   </div>
 
   <script>

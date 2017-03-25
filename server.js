@@ -6,19 +6,6 @@ const app = express()
 // urlencoded method extracts data from <form /> and adds to the body of the request object
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
-})
-
-app.post('/quotes', (req, res) => {
-  db.collection('quotes').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-
-    console.log('quote saved to database')
-    res.redirect('/')
-  })
-})
-
 // Connect to mLab mongodb client
 const MongoClient = require('mongodb').MongoClient
 
@@ -36,5 +23,19 @@ MongoClient.connect(MongoDbUri, (err, database) => {
   db = database
   app.listen(3000, () => {
     console.log('Server Started at Port 3000\n"May the Node be with you"')
+  })
+})
+
+// Push index file to client
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html')
+})
+
+// Post quotes
+app.post('/answers', (req, res) => {
+  db.collection('answers').save(req.body, (err, result) => {
+    if (err) return console.log(err)
+
+    console.log('answer saved to database')
   })
 })
