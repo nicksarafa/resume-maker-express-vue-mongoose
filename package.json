@@ -7,12 +7,13 @@
     "node": ">=4.3.2"
   },
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node app.js",
+    "dev": "NODE_ENV=dev && nodemon server.js",
+    "start": "NODE_ENV=default && node server.js",
     "test": "mocha tests --timeout 10000"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
+    "config": "^1.25.1",
     "express": "^4.14.1",
     "mongodb": "^2.2.25",
     "morgan": "^1.8.1"

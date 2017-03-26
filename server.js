@@ -4,10 +4,8 @@ let app = express()
 let cookieParser = require('cookie-parser')
 let morgan = require('morgan')
 let Applicant = require('./routes/Applicant')
+let config = require('config')
 let port = 3000
-
-// @TODO implement envs or dot-env with environment variables
-let MongoDbUri = 'mongodb://neo:2jRZ2KJA7JPmxNwnpP2PX7ELcf4QgqLnDbaMYZyXD94kEfi2xvarkoPNZbBWBz4J@ds011281.mlab.com:11281/biography-bot'
 
 // options
 let options = {
@@ -16,12 +14,12 @@ let options = {
 }
 
 // connect to db
-mongoose.connect(MongoDbUri, options)
+mongoose.connect(config.DBHost, options)
 let db = mongoose.connection
 db.on('error', console.log.bind(console, 'connection error:'))
 
 // don't let morgan log when in dev/test environment
-if(process.env['NODE_ENV'] !== 'test') {
+if(config.util.getEnv('NODE_ENV') !== 'test') {
   // use morgan to log to command line
   // outputs Apache style logs
   app.use(morgan('combined'))
