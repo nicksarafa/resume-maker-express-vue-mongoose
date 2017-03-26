@@ -1,6 +1,11 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 
+/**
+ * @todo remove currentYear nonsense
+ * @todo figure out best way to handle setting years
+ * `needs design`
+ */
 let EducationSchema = new Schema({
     schoolName: {
         type: String,
