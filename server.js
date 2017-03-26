@@ -1,48 +1,72 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
+let express = require('express')
+let bodyParser = require('body-parser')
+let app = express()
+let cookieParser = require('cookie-parser')
+let morgan = require('morgan')
+let Applicant = require('./routes/Applicant')
+let port = 3000
 
-// Activate cookieParser
-const cookieParser = require('cookie-parser')
+// @TODO implement envs or dot-env with environment variables
+let MongoDbUri = 'mongodb://neo:2jRZ2KJA7JPmxNwnpP2PX7ELcf4QgqLnDbaMYZyXD94kEfi2xvarkoPNZbBWBz4J@ds011281.mlab.com:11281/biography-bot'
+
+// options
+let options = {
+  server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+  greplset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
+}
+
+// connect to db
+mongoose.connect(MongoDbUri, options)
+let db = mongoose.connection
+db.on('error', console.log.bind(console, 'connection error:'))
+
+// don't let morgan log when in dev/test environment
+if(process.env['NODE_ENV'] !== 'test') {
+  // use morgan to log to command line
+  // outputs Apache style logs
+  app.use(morgan('combined'))
+}
 
 // add middleware (like body-parser) via `use` method
-// urlencoded method extracts data from <form /> and adds to the body of the request object
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(bodyParser.text())
+app.use(bodyParser.json({ type: 'application/json' }))
 app.use(cookieParser())
 
-// Connect to mLab mongodb client
-const MongoClient = require('mongodb').MongoClient
+app.route('/Applicant')
+  .get(Applicant.getApplicants)
+  .post(Applicant.postApplicant)
+
+app.route('/Applicant/:id')
+  .get(Applicant.getApplicant)
+  .delete(Applicant.deleteApplicant)
+  .put(Applicant.updateApplicant)
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html')
+})
 
 /**
- * MongoDbUri
- * @TODO implement envs or dot-env with environment variables
+ * Prevents `Uncaught Error: listen EADDRINUSE :::3000` when running tests
+ * @see http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
  */
+if(!module.parent) {
+  app.listen(port)
+}
 
-const MongoDbUri = 'mongodb://neo:2jRZ2KJA7JPmxNwnpP2PX7ELcf4QgqLnDbaMYZyXD94kEfi2xvarkoPNZbBWBz4J@ds011281.mlab.com:11281/biography-bot'
+console.log('Listening on port ' + port + '\nMay the node be with you.')
 
-var db
+module.exports = app
 
-MongoClient.connect(MongoDbUri, (err, database) => {
-  if (err) return console.log(err)
-  db = database
-  app.listen(3000, () => {
-    console.log('Server Started at Port 3000\n"May the Node be with you"')
-  })
-})
-
-// Push index file to client
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
-  console.log('Cookies: ', req.cookies)
-  console.log('Signed Cookies: ', req.signedCookies)
-})
-
-// Post quotes
-app.post('/answers', (req, res) => {
-  db.collection('answers').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-
-    console.log('answer saved to database')
-  })
-})
+/**
+ * Old post answers method
+ * @todo update to work with routes
+ * 
+ * app.post('/answers', (req, res) => {
+ *    db.collection('answers').save(req.body, (err, result) => {
+ *      if (err) return console.log(err)
+ *        console.log('answer saved to database')
+ *    })
+ * })
+**/

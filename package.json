@@ -9,15 +9,17 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node app.js",
-    "test": "mocha tests"
+    "test": "mocha tests --timeout 10000"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.14.1",
-    "mongodb": "^2.2.25"
+    "mongodb": "^2.2.25",
+    "morgan": "^1.8.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "cookie-parser": "^1.4.3",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
