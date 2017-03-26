@@ -1,10 +1,11 @@
 let express = require('express')
+let mongoose = require('mongoose')
 let bodyParser = require('body-parser')
-let app = express()
 let cookieParser = require('cookie-parser')
 let morgan = require('morgan')
 let Applicant = require('./routes/Applicant')
 let config = require('config')
+let app = express()
 let port = 3000
 
 // options

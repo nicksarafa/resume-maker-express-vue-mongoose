@@ -1,4 +1,4 @@
-mongoose = require('mongoose')
+let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 
 let ApplicantSchema = new mongoose.Schema({
