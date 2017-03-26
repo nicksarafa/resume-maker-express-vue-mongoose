@@ -20,13 +20,13 @@ let ApplicantSchema = new Schema({
     },
 })
 
+/**
+ * @todo double check to make sure this method of setting Date schema is sound
+ */
 ApplicantSchema.pre('save', next => {
     now = new Date()
-    if(!this.createdAt) {
-        this.createdAt = now
-    }
+    if(!this.createdAt) this.createdAt = now
     next()
 })
-
 
 module.exports = mongoose.model('Applicant', ApplicantSchema)
