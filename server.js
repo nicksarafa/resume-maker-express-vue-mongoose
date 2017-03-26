@@ -3,10 +3,11 @@ let mongoose = require('mongoose')
 let bodyParser = require('body-parser')
 let cookieParser = require('cookie-parser')
 let morgan = require('morgan')
-let Applicant = require('./routes/Applicant')
 let config = require('config')
 let app = express()
 let port = 3000
+let Applicant = require('./routes/Applicant')
+let Education = require('./routes/Education')
 
 // options
 let options = {
@@ -36,11 +37,19 @@ app.use(cookieParser())
 app.route('/Applicant')
   .get(Applicant.getApplicants)
   .post(Applicant.postApplicant)
-
 app.route('/Applicant/:id')
   .get(Applicant.getApplicant)
   .delete(Applicant.deleteApplicant)
   .put(Applicant.updateApplicant)
+
+app.route('/Education')
+  .get(Education.getEducations)
+  .post(Education.postEducation)
+app.route('/Education/:id')
+  .get(Education.getEducation)
+  .delete(Education.deleteEducation)
+  .put(Education.updateEducation)
+
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html')
