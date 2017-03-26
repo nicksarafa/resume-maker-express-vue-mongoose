@@ -21,16 +21,29 @@
     </div>
 
     <!-- Answer Input -->
-    <form action="/answers" method="POST">
+    <form action="/Applicant" method="POST">
       <input
         type="text"
-        name="answer"
-        v-model="newAnswer"
-        v-on:keyup.enter="submitAnswer"
-        placeholder="..."
+        name="name"
+        placeholder="Your Name"
         autofocus
       >
-      <button type="submit" v-on:click="nextQuestion">Next</button>
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+      >
+      <input
+        type="tel"
+        name="phone"
+        placeholder="***-***-****"
+      >
+      <input
+        type="text"
+        name="university"
+        placeholder="Where did you attend University?"
+      >
+      <button type="submit">Submit</button>
     </form>
   </div>
 
