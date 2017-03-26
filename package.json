@@ -16,7 +16,9 @@
     "mongodb": "^2.2.25"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "cookie-parser": "^1.4.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "sinon": "^2.1.0"
   }
 }
