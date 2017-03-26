@@ -1,17 +1,17 @@
-let mongoose = require('mongoose');
-let Applicant = require('../models/Applicant');
+let mongoose = require('mongoose')
+let Applicant = require('../models/Applicant')
 
 /*
  * GET /Applicant route to retrieve all the applicants.
  */
 function getApplicants(req, res) {
     //Query the DB and if no errors, send all the Applicants
-    let query = Applicant.find({});
+    let query = Applicant.find({})
     query.exec((err, Applicants) => {
-        if(err) res.send(err);
+        if(err) res.send(err)
         //If no errors, send them back to the client
-        res.json(Applicants);
-    });
+        res.json(Applicants)
+    })
 }
 
 /*
@@ -19,16 +19,16 @@ function getApplicants(req, res) {
  */
 function postApplicant(req, res) {
     //Creates a new Applicant
-    var newApplicant = new Applicant(req.body);
+    var newApplicant = new Applicant(req.body)
     //Save it into the DB.
     newApplicant.save((err,Applicant) => {
         if(err) {
-            res.send(err);
+            res.send(err)
         }
         else { //If no errors, send it back to the client
-            res.json({message: "Applicant successfully added!", Applicant });
+            res.json({message: "Applicant successfully added!", Applicant })
         }
-    });
+    })
 }
 
 /*
@@ -36,10 +36,10 @@ function postApplicant(req, res) {
  */
 function getApplicant(req, res) {
     Applicant.findById(req.params.id, (err, Applicant) => {
-        if(err) res.send(err);
+        if(err) res.send(err)
         //If no errors, send it back to the client
-        res.json(Applicant);
-    });     
+        res.json(Applicant)
+    })     
 }
 
 /*
@@ -47,8 +47,8 @@ function getApplicant(req, res) {
  */
 function deleteApplicant(req, res) {
     Applicant.remove({_id : req.params.id}, (err, result) => {
-        res.json({ message: "Applicant successfully deleted!", result });
-    });
+        res.json({ message: "Applicant successfully deleted!", result })
+    })
 }
 
 /*
@@ -56,13 +56,13 @@ function deleteApplicant(req, res) {
  */
 function updateApplicant(req, res) {
     Applicant.findById({_id: req.params.id}, (err, Applicant) => {
-        if(err) res.send(err);
+        if(err) res.send(err)
         Object.assign(Applicant, req.body).save((err, applicant) => {
-            if(err) res.send(err);
-            res.json({ message: 'Applicant updated!', Applicant });
-        }); 
-    });
+            if(err) res.send(err)
+            res.json({ message: 'Applicant updated!', Applicant })
+        }) 
+    })
 }
 
 //export all the functions
-module.exports = { getApplicants, postApplicant, getApplicant, deleteApplicant, updateApplicant };
+module.exports = { getApplicants, postApplicant, getApplicant, deleteApplicant, updateApplicant }
