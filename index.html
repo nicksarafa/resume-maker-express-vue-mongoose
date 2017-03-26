@@ -1,102 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-</head>
-<body>
-  <div id="app">
+  <head>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
 
-    <!-- @todo reconfig to use routes to POST information -->
-    <!-- @todo reconfig to POST Applicant model -->
-    <!-- Questions List -->
-    <div>
-      <ul>
-        <li v-if="questionsList.length" v-bind:key="questionsList[countOfQuestions]" class="question-item">
-          {{ questionsList[countOfQuestions] }}
-        </li>
-        <span v-for="answer in answerList" v-bind:key="answer" class="question-item">
-          {{ answer }}
-        </span>
-      </ul>
+      <!-- Applicant Form -->
+      <!-- Form targets hiddenFrame to prevent uri redirects -->
+      <form action="/Applicant" method="post" target="hiddenFrame">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          autofocus
+        >
+        <input
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+        >
+        <input
+          type="tel"
+          name="phone"
+          placeholder="***-***-****"
+        >
+        <input
+          type="text"
+          name="university"
+          placeholder="Where did you attend University?"
+        >
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
+      <iframe name="hiddenFrame" style="display: none"></iframe>
     </div>
 
-    <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
-    <iframe name="hiddenFrame" style="display: none"></iframe>
-
-    <!-- Applicant Form -->
-    <!-- Form targets hiddenFrame to prevent uri redirects -->
-    <form action="/Applicant" method="post" target="hiddenFrame">
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        autofocus
-      >
-      <input
-        type="email"
-        name="email"
-        placeholder="your@email.com"
-      >
-      <input
-        type="tel"
-        name="phone"
-        placeholder="***-***-****"
-      >
-      <input
-        type="text"
-        name="university"
-        placeholder="Where did you attend University?"
-      >
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <script>
-    new Vue({
-      el: '#app',
-      data: {
-        newAnswer: '',
-        answerList: [],
-        countOfQuestions: 0,
-        questionsList: [
-          'What\'s your name?',
-          'What\'s email address?',
-          'What\'s your phone number?',
-          'Where did you attend University?',
-        ],
-      },
-      methods: {
-        nextQuestion: function () {
-          this.questionsList.splice(this.questionsList.length, 0, this.questionsList[this.countOfQuestions++])
-        },
-        submitAnswer: function () {
-          //trim() is used to remove whitespace from both ends of a string
-          this.newAnswer = this.newAnswer.trim()
-          //if answer is not an empty string
-          if (this.newAnswer) {
-            //Push an object containing the answer to the answerList array
-            this.answerList.push(this.newAnswer)
-            //Reset newAnswer to an empty string so the input field is cleared
-            this.newAnswer = ''
-            //Proceed to next question
-            this.nextQuestion()
-          }
-        }
+    <script>
+      new Vue({
+        el: '#app',
+        data: {},
+        methods: {}
+      })
+    </script>
+    <style>
+      body {
+        text-align: center;
       }
-    })
-  </script>
-  <style>
-    body {
-      text-align: center;
-    }
-    .question-item {
-    }
-    .question-enter-active, .question-leave-active {
-      transition: all 1s;
-    }
-    .question-enter, .question-leave-to {
-      opacity: 0;
-    }
-  </style>
-</body>
+    </style>
+  </body>
 </html>
