@@ -1,10 +1,7 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
+let languageProficiencyOptions = require('../utils/static').languageProficiencyOptions
 
-/**
- * @todo enumerate list of accepted levels of proficiency
- * @see enum['Basic', 'Conversant', 'Proficent', 'Fluent', 'Native or bilingual']
- */
 let LanguageSchema = new Schema({
     name: { 
         type: String,
@@ -13,5 +10,6 @@ let LanguageSchema = new Schema({
     proficiency: {
         type: String,
         required: true,
+        enum: languageProficiencyOptions,
     },
 })
