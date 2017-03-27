@@ -1,6 +1,8 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 
+const listOfMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',]
+
 /**
  * @todo introduce location to Schema
  * @todo introduce countOfMonths to Schema
@@ -15,9 +17,15 @@ let ExperienceSchema = new Schema({
         type: String,
         required: true,
     },
-    startMonth: String,
+    startMonth: {
+        type: String,
+        enum: listOfMonths,
+    },
     startYear: String,
-    endMonth: String,
+    endMonth: {
+        type: String,
+        enum: listOfMonths,
+    },
     endYear: String,
     description: String,
 })
