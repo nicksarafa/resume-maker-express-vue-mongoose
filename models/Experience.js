@@ -7,8 +7,14 @@ let Schema = mongoose.Schema
  * @todo introduce isCurrentEmployer
  */
 let ExperienceSchema = new Schema({
-    organizationName: String,
-    title: String,
+    organizationName: {
+        type: String,
+        required: true,
+    },
+    title: {
+        type: String,
+        required: true,
+    },
     startMonth: String,
     startYear: String,
     endMonth: String,
