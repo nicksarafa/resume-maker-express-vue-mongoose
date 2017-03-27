@@ -11,9 +11,10 @@ let EducationSchema = new Schema({
         type: String,
         required: true,
     },
-    description: String,
     degree: String,
     fieldOfStudy: String,
+    extracurriculars: String,
+    description: String,
     startYear: {
         type: Date,
         default: Date.getFullYear,
