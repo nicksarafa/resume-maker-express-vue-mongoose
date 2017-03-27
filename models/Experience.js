@@ -1,6 +1,10 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 
+// import months/years from static array util
+let monthsOptions = require('../utils/static').monthsOptions
+let yearsOptions = require('../utils/static').yearsOptions
+
 /**
  * @todo introduce location to Schema
  * @todo introduce countOfMonths to Schema
@@ -15,10 +19,22 @@ let ExperienceSchema = new Schema({
         type: String,
         required: true,
     },
-    startMonth: String,
-    startYear: String,
-    endMonth: String,
-    endYear: String,
+    startMonth: {
+        type: String,
+        enum: monthsOptions,
+    },
+    startYear: {
+        type: Sting,
+        enum: yearsOptions,
+    },
+    endMonth: {
+        type: String,
+        enum: monthsOptions,
+    },
+    endYear: {
+        type: String,
+        enum: yearsOptions,
+    },
     description: String,
 })
 
