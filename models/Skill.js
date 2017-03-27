@@ -4,7 +4,7 @@ let Schema = mongoose.Schema
 Skill = new Schema({
     name: {
         type: String,
-        require: true,
+        required: true,
     }
 })
 

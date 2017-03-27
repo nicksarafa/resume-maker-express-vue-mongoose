@@ -6,7 +6,10 @@ let Schema = mongoose.Schema
  * @see http://mongoosejs.com/docs/guide.html
  */
 let ImageSchema = new Schema({
-    url: String,
+    url: {
+        type: String,
+        required: true,
+    }
 })
 
 module.export = mongoose.model('Image', ImageSchema)
