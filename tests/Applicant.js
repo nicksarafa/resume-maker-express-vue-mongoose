@@ -1,5 +1,10 @@
 process.env.NODE_ENV = 'test'
 
+/**
+ * @todo scope dummy Applicant data to local scope
+ * @todo hoist aforementioned object to shared scope
+ */
+
 let mongoose = require('mongoose')
 let chai = require('chai')
 let chaiHttp = require('chai-http')
