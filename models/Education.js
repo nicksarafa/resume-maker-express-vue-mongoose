@@ -2,7 +2,7 @@ let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 
 // import years from static array util
-let listOfYears = require('../utils/static').listOfYears
+let yearsOptions = require('../utils/static').yearsOptions
 
 let EducationSchema = new Schema({
     schoolName: {
@@ -15,11 +15,11 @@ let EducationSchema = new Schema({
     description: String,
     startYear: {
         type: String,
-        enum: listOfYears,
+        enum: yearsOptions,
     },
     endYear: {
         type: String,
-        enum: listOfYears,
+        enum: yearsOptions,
     },
 })
 
