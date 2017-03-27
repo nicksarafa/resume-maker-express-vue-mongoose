@@ -1,5 +1,5 @@
-mongoose = require('mongoose')
-Schema = mongoose.Schema
+let mongoose = require('mongoose')
+let Schema = mongoose.Schema
 
 Skill = new Schema({
     name: {
