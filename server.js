@@ -8,7 +8,7 @@ let app = express()
 let port = 3000
 
 // routes
-let Applicant = require('./routes/Applicant')
+let Header = require('./routes/Header')
 let Education = require('./routes/Education')
 let Skill = require('./routes/Skill')
 let Experience = require('./routes/Experience')
@@ -36,16 +36,16 @@ if(config.util.getEnv('NODE_ENV') !== 'test') {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.text())
-app.use(bodyParser.json({ type: 'application/json' }))
+app.use(bodyParser.json({ type: 'Header/json' }))
 app.use(cookieParser())
 
-app.route('/Applicant')
-  .get(Applicant.getApplicants)
-  .post(Applicant.postApplicant)
-app.route('/Applicant/:id')
-  .get(Applicant.getApplicant)
-  .delete(Applicant.deleteApplicant)
-  .put(Applicant.updateApplicant)
+app.route('/Header')
+  .get(Header.getHeaders)
+  .post(Header.postHeader)
+app.route('/Header/:id')
+  .get(Header.getHeader)
+  .delete(Header.deleteHeader)
+  .put(Header.updateHeader)
 
 app.route('/Education')
   .get(Education.getEducations)
