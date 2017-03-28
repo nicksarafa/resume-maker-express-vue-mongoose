@@ -37,15 +37,18 @@ function getEducation(req, res) {
 // DELETE /Education/:id to delete an education given its id
 function deleteEducation(req, res) {
     Education.remove({_id: req.params.id}, (err, result) => {
-        res.json({ message: 'Education successfully deleted', result })
+        res.json({ message: 'Education successfully deleted!', result })
     })
 }
 
 // UPDATE /Education/:id
 function updateEducation(req, res) {
-    Education.findById({_id: req.params.id}, (err, Education) => {
+    Education.findById({ _id: req.params.id }, (err, Education) => {
         if(err) res.send(err)
-        res.json({ message: 'Education updated!' })
+        Object.assign(Education, req.body).save((err, Education) => {
+            if(err) res.send(err)
+            res.json({ message: 'Education successfully updated!', Education })
+        })
     })
 }
 
