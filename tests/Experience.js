@@ -30,7 +30,7 @@ describe ('Experience', () => {
         })
     })
 
-    describe('/POST Experience', () => {
+    describe ('/POST Experience', () => {
         it('it should NOT POST an Experience without a organizationName or title', (done) => {
             let Experience = {
                 // organizationName: 'Github',
