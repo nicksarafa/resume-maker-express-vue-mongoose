@@ -5,22 +5,22 @@ let chai = require('chai')
 let chaiHttp = require('chai-http')
 let server = require('../server')
 let should = chai.should()
-let Application = require('../models/Application')
+let Header = require('../models/Header')
 
 chai.use(chaiHttp)
 
-describe('Applications', () => {
+describe('Headers', () => {
 
     beforeEach((done) => {
-        Application.remove({}, (err) => {
+        Header.remove({}, (err) => {
            done()
         })
     })
 
-    describe ('/GET Application', () => {
-        it('it should GET all the Applications', (done) => {
+    describe ('/GET Header', () => {
+        it('it should GET all the Headers', (done) => {
             chai.request(server)
-            .get('/Application/')
+            .get('/Header/')
             .end((err, res) => {
                 res.should.have.status(200)
                 res.body.should.be.a('array')
@@ -30,15 +30,15 @@ describe('Applications', () => {
         })
     })
 
-    describe ('/POST Application', () => {
-        it('it should not POST an Application without name field', (done) => {
-            let Application = {
+    describe ('/POST Header', () => {
+        it('it should not POST an Header without name field', (done) => {
+            let Header = {
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890',
             }
             chai.request(server)
-            .post('/Application/')
-            .send(Application)
+            .post('/Header/')
+            .send(Header)
             .end((err, res) => {
                 res.should.have.status(200)
                 res.body.should.be.a('object')
@@ -49,87 +49,87 @@ describe('Applications', () => {
             })
         })
 
-        it('it should POST an Application ', (done) => {
-            let Application = {
+        it('it should POST an Header ', (done) => {
+            let Header = {
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
             }
             chai.request(server)
-            .post('/Application/')
-            .send(Application)
+            .post('/Header/')
+            .send(Header)
             .end((err, res) => {
                 res.should.have.status(200)
                 res.body.should.be.a('object')
-                res.body.should.have.property('message').eql('Application successfully added!')
-                res.body.Application.should.have.property('name')
-                res.body.Application.should.have.property('email')
-                res.body.Application.should.have.property('phone')
+                res.body.should.have.property('message').eql('Header successfully added!')
+                res.body.Header.should.have.property('name')
+                res.body.Header.should.have.property('email')
+                res.body.Header.should.have.property('phone')
                 done()
             })
         })
     })
 
-    describe ('/GET/:id Application', () => {
-        it('it should GET an Application by the given id', (done) => {
-            let application = new Application({
+    describe ('/GET/:id Header', () => {
+        it('it should GET an Header by the given id', (done) => {
+            let header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
             })
-            application.save((err, Application) => {
+            header.save((err, Header) => {
                 chai.request(server)
-                .get('/Application/' + Application.id)
-                .send(Application)
+                .get('/Header/' + Header.id)
+                .send(Header)
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
                     res.body.should.have.property('name')
                     res.body.should.have.property('email')
                     res.body.should.have.property('phone')
-                    res.body.should.have.property('_id').eql(Application.id)
+                    res.body.should.have.property('_id').eql(Header.id)
                     done()
                 })
             })
         })
     })
 
-    describe ('/PUT/:id Application', () => {
-        it('it should UPDATE an Application given the id', (done) => {
-            let application = new Application({
+    describe ('/PUT/:id Header', () => {
+        it('it should UPDATE an Header given the id', (done) => {
+            let header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
             })
-            application.save((err, Application) => {
+            header.save((err, Header) => {
                 chai.request(server)
-                .put('/Application/' + Application.id)
+                .put('/Header/' + Header.id)
                 .send({ name: 'C.S. Lewis' })
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
-                    res.body.should.have.property('message').eql('Application successfully updated!')
-                    res.body.Application.should.have.property('name').eql('C.S. Lewis')
+                    res.body.should.have.property('message').eql('Header successfully updated!')
+                    res.body.Header.should.have.property('name').eql('C.S. Lewis')
                     done()
                 })
             })
         })
     })
 
-    describe ('/DELETE/:id Application', () => {
-        it('it should DELETE an Application given its id', (done) => {
-            let application = new Application({
+    describe ('/DELETE/:id Header', () => {
+        it('it should DELETE an Header given its id', (done) => {
+            let header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
             })
-            application.save((err, Application) => {
+            header.save((err, Header) => {
                 chai.request(server)
-                .delete('/Application/' + Application.id)
+                .delete('/Header/' + Header.id)
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
-                    res.body.should.have.property('message').eql('Application successfully deleted!')
+                    res.body.should.have.property('message').eql('Header successfully deleted!')
                     res.body.result.should.have.property('ok').eql(1)
                     res.body.result.should.have.property('n').eql(1)
                     done()

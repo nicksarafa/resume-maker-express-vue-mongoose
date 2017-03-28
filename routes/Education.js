@@ -2,12 +2,12 @@ let mongoose = require('mongoose')
 let Education = require('../models/Education')
 
 /**
- * @todo nest Education within Application. I don't think it needs its own route
+ * @todo nest Education within Header. I don't think it needs its own route
  */
 
 // GET /Education route to retrieve all educations
 function getEducations(req, res) {
-    // query the DB and if no errors, send all the Applications
+    // query the DB and if no errors, send all the Headers
     let query = Education.find({})
     query.exec((err, Educations) => {
         if(err) res.send(err)

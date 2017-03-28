@@ -4,7 +4,7 @@ let Schema = mongoose.Schema
 /**
  * @todo add optional user website url
  */
-let ApplicationSchema = new Schema({
+let HeaderSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -13,4 +13,4 @@ let ApplicationSchema = new Schema({
     phone: String,
 })
 
-module.exports = mongoose.model('Application', ApplicationSchema)
+module.exports = mongoose.model('Header', HeaderSchema)
