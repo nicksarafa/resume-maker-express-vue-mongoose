@@ -9,6 +9,7 @@ let port = 3000
 let Applicant = require('./routes/Applicant')
 let Education = require('./routes/Education')
 let Skill = require('./routes/Skill')
+let Experience = require('./routes/Experience')
 
 // db options on connect
 let options = {
@@ -58,6 +59,14 @@ app.route('/Skill/:id')
   .get(Skill.getSkill)
   .delete(Skill.deleteSkill)
   .put(Skill.updateSkill)
+
+app.route('/Experience')
+  .get(Experience.getExperiences)
+  .post(Experience.postExperience)
+app.route('/Experience/:id')
+  .get(Experience.getExperience)
+  .delete(Experience.deleteExperience)
+  .put(Experience.updateExperience)
 
 /**
  * Serve index.html to client

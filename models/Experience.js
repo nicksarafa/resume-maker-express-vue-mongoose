@@ -24,7 +24,7 @@ let ExperienceSchema = new Schema({
         enum: monthsOptions,
     },
     startYear: {
-        type: Sting,
+        type: String,
         enum: yearsOptions,
     },
     endMonth: {
