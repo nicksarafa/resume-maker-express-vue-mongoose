@@ -8,8 +8,9 @@ let app = express()
 let port = 3000
 let Applicant = require('./routes/Applicant')
 let Education = require('./routes/Education')
+let Skill = require('./routes/Skill')
 
-// options
+// db options on connect
 let options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
   greplset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
@@ -50,7 +51,17 @@ app.route('/Education/:id')
   .delete(Education.deleteEducation)
   .put(Education.updateEducation)
 
+app.route('/Skill')
+  .get(Skill.getSkills)
+  .post(Skill.postSkill)
+app.route('/Skill/:id')
+  .get(Skill.getSkill)
+  .delete(Skill.deleteSkill)
+  .put(Skill.updateSkill)
 
+/**
+ * Serve index.html to client
+ */
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html')
 })
