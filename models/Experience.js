@@ -6,6 +6,7 @@ let monthsOptions = require('../utils/static').monthsOptions
 let yearsOptions = require('../utils/static').yearsOptions
 
 /**
+ * @todo validate that endYear > startYear
  * @todo introduce location to Schema
  * @todo introduce countOfMonths to Schema
  * @todo introduce isCurrentEmployer
@@ -24,7 +25,7 @@ let ExperienceSchema = new Schema({
         enum: monthsOptions,
     },
     startYear: {
-        type: Sting,
+        type: String,
         enum: yearsOptions,
     },
     endMonth: {

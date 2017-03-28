@@ -40,7 +40,7 @@ function deleteSkill(req, res) {
 function updateSkill(req, res) {
     Skill.findById({ _id: req.params.id }, (err, Skill) => {
         if(err) res.send(err)
-        Object.assign(Skill, req.body).save((err, skill) => {
+        Object.assign(Skill, req.body).save((err, Skill) => {
             if(err) res.send(err)
             res.json({ message: 'Skill updated!', Skill })
         })
