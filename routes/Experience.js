@@ -13,7 +13,7 @@ function postExperience(req, res) {
     let newExperience = new Experience(req.body)
     newExperience.save((err, Experience) => {
         if(err) res.send(err)
-        else res.json({ message: 'Experience successfully added!' })
+        else res.json({ message: 'Experience successfully added!', Experience })
     })
 }
 
@@ -25,8 +25,8 @@ function getExperience(req, res) {
 }
 
 function deleteExperience(req, res) {
-    Experience.findById({ _id: req.params.id }, (err, result) => {
-        res.json({ message: 'Experience successfully deleted!' })
+    Experience.remove({ _id: req.params.id }, (err, result) => {
+        res.json({ message: 'Experience successfully deleted!', result })
     })
 }
 
@@ -35,7 +35,7 @@ function updateExperience(req, res) {
         if(err) res.send(err)
         Object.assign(Experience, req.body).save((err, experience) => {
             if(err) res.send(err)
-            res.json({ message: 'Experience successfully updated!' })
+            res.json({ message: 'Experience successfully updated!', Experience })
         })
     })
 }
