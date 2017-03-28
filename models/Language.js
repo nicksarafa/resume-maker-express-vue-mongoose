@@ -13,3 +13,5 @@ let LanguageSchema = new Schema({
         enum: languageProficiencyOptions,
     },
 })
+
+module.exports = mongoose.model('Language', LanguageSchema)

@@ -6,10 +6,13 @@ let morgan = require('morgan')
 let config = require('config')
 let app = express()
 let port = 3000
+
+// routes
 let Applicant = require('./routes/Applicant')
 let Education = require('./routes/Education')
 let Skill = require('./routes/Skill')
 let Experience = require('./routes/Experience')
+let Language = require('./routes/Language')
 
 // db options on connect
 let options = {
@@ -67,6 +70,14 @@ app.route('/Experience/:id')
   .get(Experience.getExperience)
   .delete(Experience.deleteExperience)
   .put(Experience.updateExperience)
+
+app.route('/Language')
+  .get(Language.getLanguages)
+  .post(Language.postLanguage)
+app.route('/Language/:id')
+  .get(Language.getLanguage)
+  .delete(Language.deleteLanguage)
+  .put(Language.updateLanguage)
 
 /**
  * Serve index.html to client
