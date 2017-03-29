@@ -9,7 +9,7 @@ let Experience = require('../models/Experience')
 
 chai.use(chaiHttp)
 
-describe ('Experience', () => {
+describe('Experience', () => {
 
     beforeEach((done) => {
         Experience.remove({}, (err) => {
@@ -17,7 +17,7 @@ describe ('Experience', () => {
         })
     })
 
-    describe ('/GET Experiences', () => {
+    describe('/GET Experiences', () => {
         it('it should get all Experiences', (done) => {
             chai.request(server)
             .get('/Experience/')
@@ -30,7 +30,7 @@ describe ('Experience', () => {
         })
     })
 
-    describe ('/POST Experience', () => {
+    describe('/POST Experience', () => {
         it('it should NOT POST an Experience without a organizationName or title', (done) => {
             let Experience = {
                 // organizationName: 'Github',
@@ -79,7 +79,7 @@ describe ('Experience', () => {
         })
     })
 
-    describe ('/GET/:id Experience', () => {
+    describe('/GET/:id Experience', () => {
         it('it should retrieve an Experience given its id', (done) => {
             let experience = new Experience({
                 organizationName: 'Github',
@@ -106,7 +106,7 @@ describe ('Experience', () => {
         })
     })
 
-    describe ('/PUT/:id Experience', () => {
+    describe('/PUT/:id Experience', () => {
         it('it should UPDATE an Experience given its id', (done) => {
             let experience = new Experience({
                 organizationName: 'Github',
@@ -132,7 +132,7 @@ describe ('Experience', () => {
         })
     })
 
-    describe ('/DELETE/:id Experience', () => {
+    describe('/DELETE/:id Experience', () => {
         it('it should DELETE an Experience given its id', (done) => {
             let experience = new Experience({
                 organizationName: 'Github',

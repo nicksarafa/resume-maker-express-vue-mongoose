@@ -9,7 +9,7 @@ let Education = require('../models/Education')
 
 chai.use(chaiHtpp)
 
-describe ('Education', () => {
+describe('Education', () => {
 
     beforeEach((done) => {
         Education.remove({}, (err) => {
@@ -18,7 +18,7 @@ describe ('Education', () => {
         })
     })
 
-    describe ('/GET Education', () => {
+    describe('/GET Education', () => {
         it('it should GET all Educations', (done) => {
            chai.request(server) 
            .get('/Education')
@@ -31,7 +31,7 @@ describe ('Education', () => {
         })
     })
 
-    describe ('/POST Education', () => {
+    describe('/POST Education', () => {
         it('it should NOT post Education without schoolName', (done) => {
             let Education = {
                 // schoolName: 'Duke University',
@@ -56,7 +56,7 @@ describe ('Education', () => {
         })
     })
 
-    describe ('/GET/:id Education', () => {
+    describe('/GET/:id Education', () => {
         it('it should GET Education given its id', (done) => {
             let education = new Education({
                 schoolName: 'Duke University',
@@ -82,7 +82,7 @@ describe ('Education', () => {
         })
     })
 
-    describe ('/DELETE/:id Education', () => {
+    describe('/DELETE/:id Education', () => {
         it('it should DELETE Education given its id', (done) => {
             let education = new Education({
                 schoolName: 'Duke University',
@@ -109,7 +109,7 @@ describe ('Education', () => {
     })
 
 
-    describe ('/PUT/:id Education', () => {
+    describe('/PUT/:id Education', () => {
         it('it should UPDATE Education given its id', (done) => {
             let education = new Education({
                 schoolName: 'Duke University',

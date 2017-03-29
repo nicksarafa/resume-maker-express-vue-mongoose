@@ -1,43 +1,61 @@
 let express = require('express')
 let mongoose = require('mongoose')
 let bodyParser = require('body-parser')
-let cookieParser = require('cookie-parser')
-let morgan = require('morgan')
 let config = require('config')
 let app = express()
 let port = 3000
 
-// routes
-let Header = require('./routes/Header')
-let Education = require('./routes/Education')
-let Skill = require('./routes/Skill')
-let Experience = require('./routes/Experience')
-let Language = require('./routes/Language')
+/**
+ * SERVER
+ */
 
-// db options on connect
+// serve index.html to client
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html')
+})
+
+// middleware
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.text())
+app.use(bodyParser.json({ type: 'Header/json' }))
+
+/**
+ * wrapper supresses testign suite error
+ * @see http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
+ */
+if(!module.parent) { 
+  app.listen(port)
+}
+
+console.log('Listening on port ' + port + '\nMay the node be with you.')
+
+/************************************************************************/
+
+/**
+ * DATABASE
+ */
+
 let options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
   greplset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
 }
 
-// connect to db
 mongoose.connect(config.DBHost, options)
-let db = mongoose.connection
-db.on('error', console.log.bind(console, 'connection error:'))
 
-// don't let morgan log when in dev/test environment
-if(config.util.getEnv('NODE_ENV') !== 'test') {
-  // use morgan to log to command line
-  // outputs Apache style logs
-  app.use(morgan('combined'))
-}
+mongoose.connection.on('error', console.log.bind(console, 'mongoose connection error:'))
 
-// add middleware (like body-parser) via `use` method
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.text())
-app.use(bodyParser.json({ type: 'Header/json' }))
-app.use(cookieParser())
+/************************************************************************/
+
+/**
+ * ROUTES
+ */
+
+let Header = require('./routes/Header')
+let Education = require('./routes/Education')
+let Skill = require('./routes/Skill')
+let Experience = require('./routes/Experience')
+let Language = require('./routes/Language')
 
 app.route('/Header')
   .get(Header.getHeaders)
@@ -79,33 +97,6 @@ app.route('/Language/:id')
   .delete(Language.deleteLanguage)
   .put(Language.updateLanguage)
 
-/**
- * Serve index.html to client
- */
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html')
-})
-
-/**
- * Prevents `Uncaught Error: listen EADDRINUSE :::3000` when running tests
- * @see http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
- */
-if(!module.parent) {
-  app.listen(port)
-}
-
-console.log('Listening on port ' + port + '\nMay the node be with you.')
+/************************************************************************/
 
 module.exports = app
-
-/**
- * Old post answers method
- * @todo update to work with routes
- * 
- * app.post('/answers', (req, res) => {
- *    db.collection('answers').save(req.body, (err, result) => {
- *      if (err) return console.log(err)
- *        console.log('answer saved to database')
- *    })
- * })
-**/

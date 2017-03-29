@@ -9,7 +9,7 @@ let Language = require('../models/Language')
 
 chai.use(chaiHttp)
 
-describe ('Language', () => {
+describe('Language', () => {
 
     beforeEach((done) => {
         Language.remove({}, (err) => {
@@ -17,7 +17,7 @@ describe ('Language', () => {
         })
     })
 
-    describe ('/GET Language', () => {
+    describe('/GET Language', () => {
         it('it should GET all Languges', (done) => {
            chai.request(server) 
            .get('/Language/')
@@ -30,7 +30,7 @@ describe ('Language', () => {
         })
     })
 
-    describe ('/POST Language', () => {
+    describe('/POST Language', () => {
         it('it should NOT let you POST without name and proficiency', (done) => {
            let Language = {
             //    name: 'Spanish',
@@ -70,7 +70,7 @@ describe ('Language', () => {
         })
     })
 
-    describe ('/GET/:id Language', () => {
+    describe('/GET/:id Language', () => {
         it('it should get a Language given its id', (done) => {
             let language = new Language({
                 name: 'Vietnamese',
@@ -92,7 +92,7 @@ describe ('Language', () => {
         })
     })
 
-    describe ('/DELETE/:id Language', () => {
+    describe('/DELETE/:id Language', () => {
         it('it should DELETE a Language given its id', (done) => {
             let language = new Language({
                 name: 'JavaScript',
@@ -113,7 +113,7 @@ describe ('Language', () => {
         })
     })
 
-    describe ('/PUT/:id Language', () => {
+    describe('/PUT/:id Language', () => {
         it('it should UPDATE a Language given its id', (done) => {
             let language = new Language({
                 name: 'Vietnamese',

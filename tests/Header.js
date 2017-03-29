@@ -17,7 +17,7 @@ describe('Headers', () => {
         })
     })
 
-    describe ('/GET Header', () => {
+    describe('/GET Header', () => {
         it('it should GET all the Headers', (done) => {
             chai.request(server)
             .get('/Header/')
@@ -30,7 +30,7 @@ describe('Headers', () => {
         })
     })
 
-    describe ('/POST Header', () => {
+    describe('/POST Header', () => {
         it('it should not POST an Header without name field', (done) => {
             let Header = {
                 email: 'JohnSnow@gmail.com',
@@ -70,7 +70,7 @@ describe('Headers', () => {
         })
     })
 
-    describe ('/GET/:id Header', () => {
+    describe('/GET/:id Header', () => {
         it('it should GET an Header by the given id', (done) => {
             let header = new Header({
                 name: 'John Snow',
@@ -94,7 +94,7 @@ describe('Headers', () => {
         })
     })
 
-    describe ('/PUT/:id Header', () => {
+    describe('/PUT/:id Header', () => {
         it('it should UPDATE an Header given the id', (done) => {
             let header = new Header({
                 name: 'John Snow',
@@ -116,7 +116,7 @@ describe('Headers', () => {
         })
     })
 
-    describe ('/DELETE/:id Header', () => {
+    describe('/DELETE/:id Header', () => {
         it('it should DELETE an Header given its id', (done) => {
             let header = new Header({
                 name: 'John Snow',
