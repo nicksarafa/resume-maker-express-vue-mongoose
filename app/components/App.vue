@@ -1,8 +1,5 @@
 <template>
     <div>
-
-      <masked-input v-model="date" mask="11 / 11 / 1111" placeholder="Date" />
-
       <!-- Header Form -->
       <!-- Form targets hiddenFrame to prevent uri redirects -->
       <form action="/Header" method="POST" target="hiddenFrame">
@@ -88,12 +85,23 @@ import MaskedInput from 'vue-masked-input'
 
 export default {
   name: 'app',
-  components: { MaskedInput },
+  components: { MaskedInput }
 }
 </script>
 
 <style>
   body {
     text-align: center;
+  }
+
+  input {
+      margin: 12px 0;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 8px 16px;
+      border: none;
+      border-bottom: 2px solid #4fc08d;
+      outline: none;
+      margin-right: 24px;
   }
 </style>
