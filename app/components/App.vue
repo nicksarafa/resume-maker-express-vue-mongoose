@@ -81,12 +81,9 @@
 </template>
 
 <script>
-import MaskedInput from 'vue-masked-input'
-
-export default {
-  name: 'app',
-  components: { MaskedInput }
-}
+  export default {
+    name: 'app',
+  }
 </script>
 
 <style>
