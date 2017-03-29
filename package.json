@@ -8,9 +8,8 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "start": "npm-run-all --parallel watch:server watch:build",
+    "start": "npm run watch:build",
     "watch:build": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "watch:server": "nodemon server.js --watch \"./dist\"",
     "test": "mocha tests --timeout 10000"
   },
   "dependencies": {
@@ -32,8 +31,6 @@
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
     "mocha": "^3.2.0",
-    "nodemon": "^1.11.0",
-    "npm-run-all": "^4.0.2",
     "sinon": "^2.1.0",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.1",
