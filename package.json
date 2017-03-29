@@ -7,23 +7,37 @@
     "node": ">=4.3.2"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev && nodemon server.js",
-    "start": "NODE_ENV=default && node server.js",
+    "start": "npm run dev",
+    "dev": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "webpack-dev-server --hot",
+    "watch:server": "nodemon server.js",
+    "build": "webpack --progress --hide-modules",
     "test": "mocha tests --timeout 10000"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
     "config": "^1.25.1",
-    "express": "^4.14.1",
-    "mongoose": "^4.9.1",
-    "morgan": "^1.8.1"
+    "express": "^4.15.2",
+    "mongoose": "^4.9.2",
+    "morgan": "^1.8.1",
+    "vue": "^2.2.6"
   },
   "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-latest": "^6.24.0",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "cookie-parser": "^1.4.3",
+    "css-loader": "^0.27.3",
+    "file-loader": "^0.10.1",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
-    "sinon": "^2.1.0"
+    "npm-run-all": "^4.0.2",
+    "sinon": "^2.1.0",
+    "vue-loader": "^11.3.4",
+    "vue-template-compiler": "^2.2.6",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   }
 }

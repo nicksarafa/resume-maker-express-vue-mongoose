@@ -1,101 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
   </head>
   <body>
-    <div id="app">
-
-      <!-- Header Form -->
-      <!-- Form targets hiddenFrame to prevent uri redirects -->
-      <form action="/Header" method="POST" target="hiddenFrame">
-        <input
-          name="name"
-          type="text"
-          placeholder="Your Name"
-          autofocus
-        >
-        <input
-          name="email"
-          type="email"
-          placeholder="your@email.com"
-        >
-        <input
-          name="phone"
-          type="tel"
-          placeholder="***-***-****"
-        >
-        <input
-          name="university"
-          type="text"
-          placeholder="Where did you attend University?"
-        >
-        <button type="submit">Submit</button>
-      </form>
-
-      <!-- Education Form -->
-      <!-- Form targets hiddenFrame to prevent uri redirects -->
-      <!-- @todo edit placeholders so we're not completley ripping off LinkedIn' -->
-      <form action="/Education" method="POST" target="hiddenFrame">
-        <input
-          name="schoolName"
-          type="text"
-          placeholder="School"
-          autofocus
-        >
-        <input
-          name="degree"
-          type="text"
-          placeholder="Degree"
-        >
-        <input
-          name="fieldOfStudy"
-          type="text"
-          placeholder="Field of Study"
-        >
-        <input
-          name="startYear"
-          type="date"
-          placeholder="From Year"
-        >
-        <input
-          name="endYear"
-          type="date"
-          placeholder="To Year (or expected)"
-        >
-        <input
-          name="Description"
-          type="text"
-          placeholder="Activities and societies"
-        >
-        <button type="submit">Submit</button>
-      </form>
-
-      <!-- Post Skill <form /> -->
-      <form action="/Skill" method="POST" target="hiddenFrame">
-        <input
-          name="name"
-          type="text"
-          placeholder="Skill"
-        >
-        <button type="Submit">Post New Skill</button>
-      </form>
-
-      <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
-      <iframe name="hiddenFrame" style="display: none"></iframe>
-    </div>
-
-    <script>
-      new Vue({
-        el: '#app',
-        data: {},
-        methods: {}
-      })
-    </script>
-    <style>
-      body {
-        text-align: center;
-      }
-    </style>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
   </body>
 </html>
