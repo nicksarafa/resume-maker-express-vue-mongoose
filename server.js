@@ -24,7 +24,6 @@ const dev = process.env.NODE_ENV !== 'production'
 const nextjs = next({ dev })
 const handle = nextjs.getRequestHandler()
 const app = express()
-modules.exports
 
 nextjs.prepare()
 .then(() => {
