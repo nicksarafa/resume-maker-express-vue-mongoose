@@ -19,24 +19,11 @@
     "mongoose": "^4.9.2",
     "next": "^2.0.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "vue": "^2.2.6"
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-latest": "^6.24.0",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "css-loader": "^0.27.3",
-    "file-loader": "^0.10.1",
-    "mocha": "^3.2.0",
-    "nodemon": "^1.11.0",
-    "npm-run-all": "^4.0.2",
-    "sinon": "^2.1.0",
-    "vue-loader": "^11.3.4",
-    "vue-template-compiler": "^2.2.6",
-    "webpack": "^2.3.2",
-    "webpack-dev-server": "^2.4.2"
+    "mocha": "^3.2.0"
   }
 }
