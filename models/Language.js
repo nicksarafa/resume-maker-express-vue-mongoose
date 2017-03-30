@@ -1,8 +1,8 @@
-let mongoose = require('mongoose')
-let Schema = mongoose.Schema
-let languageProficiencyOptions = require('../utils/static').languageProficiencyOptions
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const languageProficiencyOptions = require('../utils/static').languageProficiencyOptions
 
-let LanguageSchema = new Schema({
+const LanguageSchema = new Schema({
     name: { 
         type: String,
         required: true,

@@ -1,8 +1,8 @@
-let mongoose = require('mongoose')
-let Education = require('../models/Education')
+const mongoose = require('mongoose')
+const Education = require('../models/Education')
 
 function getEducations(req, res) {
-    let query = Education.find({})
+    const query = Education.find({})
     query.exec((err, Educations) => {
         if(err) res.send(err)
         res.json(Educations)
@@ -10,7 +10,7 @@ function getEducations(req, res) {
 }
 
 function postEducation(req, res) {
-    var newEducation = new Education(req.body)
+    const newEducation = new Education(req.body)
     newEducation.save((err, Education) => {
         if(err) res.send(err)
         else res.json({ message: 'Education successfully added!', Education })

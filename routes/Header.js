@@ -1,8 +1,8 @@
-let mongoose = require('mongoose')
-let Header = require('../models/Header')
+const mongoose = require('mongoose')
+const Header = require('../models/Header')
 
 function getHeaders(req, res) {
-    let query = Header.find({})
+    const query = Header.find({})
     query.exec((err, Headers) => {
         if(err) res.send(err)
         res.json(Headers)
@@ -10,7 +10,7 @@ function getHeaders(req, res) {
 }
 
 function postHeader(req, res) {
-    var newHeader = new Header(req.body)
+    const newHeader = new Header(req.body)
     newHeader.save((err,Header) => {
         if (err) res.send(err)
         else res.json({ message: 'Header successfully added!', Header })

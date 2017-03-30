@@ -1,8 +1,8 @@
-let mongoose = require('mongoose')
-let Experience = require('../models/Experience')
+const mongoose = require('mongoose')
+const Experience = require('../models/Experience')
 
 function getExperiences(req, res) {
-    let query = Experience.find({})
+    const query = Experience.find({})
     query.exec((err, Experiences) => {
         if(err) res.send(err)
         res.json(Experiences)
@@ -10,7 +10,7 @@ function getExperiences(req, res) {
 }
 
 function postExperience(req, res) {
-    let newExperience = new Experience(req.body)
+    const newExperience = new Experience(req.body)
     newExperience.save((err, Experience) => {
         if(err) res.send(err)
         else res.json({ message: 'Experience successfully added!', Experience })
