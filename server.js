@@ -94,7 +94,7 @@ nextjs.prepare()
  * DATABASE
  */
 
-let options = {
+const options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
   greplset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
 }
