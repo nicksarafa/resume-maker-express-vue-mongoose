@@ -6,19 +6,58 @@
       <form action="/Header" method="POST" target="hiddenFrame">
         <input
           name="name"
-          type="text"
           placeholder="Your Name"
+          type="text"
           autofocus
         >
         <input
           name="email"
-          type="email"
           placeholder="your@email.com"
+          type="email"
         >
         <input
           name="phone"
-          type="tel"
           placeholder="***-***-****"
+          type="tel"
+        >
+      </form>
+
+      <!-- Experience <form /> -->
+      <form action="/Experience" method="POST" target="hiddenFrame">
+        <input
+          name="organizationName"
+          placeholder="Organization Name"
+          type="text"
+        >
+        <input
+          name="title"
+          placeholder="Title"
+          type="text"
+        >
+        <input
+          name="startMonth"
+          placeholder="Start Month"
+          type="text"
+        >
+        <input
+          name="startYear"
+          placeholder="Start Year"
+          type="text"
+        >
+        <input
+          name="endMonth"
+          placeholder="End Month"
+          type="text"
+        >
+        <input
+          name="endYear"
+          placeholder="End Year"
+          type="text"
+        >
+        <input
+          name="description"
+          placeholder="Description"
+          type="text"
         >
       </form>
 
@@ -28,34 +67,34 @@
       <form action="/Education" method="POST" target="hiddenFrame">
         <input
           name="schoolName"
-          type="text"
           placeholder="School"
+          type="text"
           autofocus
         >
         <input
           name="degree"
-          type="text"
           placeholder="Degree"
+          type="text"
         >
         <input
           name="fieldOfStudy"
-          type="text"
           placeholder="Field of Study"
+          type="text"
         >
         <input
           name="startYear"
-          type="date"
           placeholder="From Year"
+          type="text"
         >
         <input
           name="endYear"
-          type="date"
           placeholder="To Year (or expected)"
+          type="text"
         >
         <input
           name="Description"
-          type="text"
           placeholder="Activities and societies"
+          type="text"
         >
       </form>
 
@@ -63,8 +102,8 @@
       <form action="/Language" method="POST" target="hiddenFrame">
         <input
           name="name"
-          type="text"
           placeholder="Language"
+          type="text"
         >
         <select>
           <option value="Basic">Basic</option>
@@ -79,14 +118,15 @@
       <form action="/Skill" method="POST" target="hiddenFrame">
         <input
           name="name"
-          type="text"
           placeholder="Skill"
+          type="text"
         >
       </form>
 
       <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
       <iframe name="hiddenFrame" style="display: none"></iframe>
-  </div>
+
+    </div>
 </template>
 
 <script>
@@ -98,7 +138,6 @@
 </script>
 
 <style>
-
   body {
     font-size: 13px;
     text-align: center;
@@ -131,5 +170,4 @@
     justify-content: center;
     flex-direction: column;
   }
-
 </style>
