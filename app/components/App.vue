@@ -1,7 +1,8 @@
 <template>
     <div>
-      <!-- Header Form -->
-      <!-- Form targets hiddenFrame to prevent uri redirects -->
+
+      <!-- Header <form /> -->
+      <!-- <form /> targets hiddenFrame to prevent uri redirects -->
       <form action="/Header" method="POST" target="hiddenFrame">
         <input
           name="name"
@@ -19,16 +20,10 @@
           type="tel"
           placeholder="***-***-****"
         >
-        <input
-          name="university"
-          type="text"
-          placeholder="Where did you attend University?"
-        >
-        <button type="submit">Submit</button>
       </form>
 
-      <!-- Education Form -->
-      <!-- Form targets hiddenFrame to prevent uri redirects -->
+      <!-- Education <form /> -->
+      <!-- <form /> targets hiddenFrame to prevent uri redirects -->
       <!-- @todo edit placeholders so we're not completley ripping off LinkedIn' -->
       <form action="/Education" method="POST" target="hiddenFrame">
         <input
@@ -62,7 +57,22 @@
           type="text"
           placeholder="Activities and societies"
         >
-        <button type="submit">Submit</button>
+      </form>
+
+      <!-- Post Languages <form /> -->
+      <form action="/Language" method="POST" target="hiddenFrame">
+        <input
+          name="name"
+          type="text"
+          placeholder="Language"
+        >
+        <select>
+          <option value="Basic">Basic</option>
+          <option value="Conversant">Conversant</option>
+          <option value="Proficent">Proficent</option>
+          <option value="Fluent">Fluent</option>
+          <option value="Native or Bilingual">Native or Bilingual</option>
+        </select>
       </form>
 
       <!-- Post Skill <form /> -->
@@ -72,7 +82,6 @@
           type="text"
           placeholder="Skill"
         >
-        <button type="Submit">Post New Skill</button>
       </form>
 
       <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
@@ -83,22 +92,45 @@
 <script>
   export default {
     name: 'app',
+    data: {},
+    methods: {},
   }
 </script>
 
 <style>
   body {
+    font-size: 13px;
     text-align: center;
   }
 
   input {
-      margin: 12px 0;
+      margin: 1em 0;
       font-family: inherit;
       font-size: inherit;
-      padding: 8px 16px;
+      padding: .5em 1em;
       border: none;
-      border-bottom: 2px solid #4fc08d;
+      border-bottom: 0.2em solid #4fc08d;
       outline: none;
-      margin-right: 24px;
+  }
+
+  button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em 2em;
+    line-height: 1em;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  form {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  form > input {
+    display: block;
   }
 </style>
