@@ -98,19 +98,20 @@
 </script>
 
 <style>
+
   body {
     font-size: 13px;
     text-align: center;
   }
 
   input {
-      margin: 1em 0;
-      font-family: inherit;
-      font-size: inherit;
-      padding: .5em 1em;
-      border: none;
-      border-bottom: 0.2em solid #4fc08d;
-      outline: none;
+    margin: 1em 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding: .5em 1em;
+    border: none;
+    border-bottom: 0.2em solid #4fc08d;
+    outline: none;
   }
 
   button {
@@ -124,13 +125,11 @@
   }
 
   form {
+    align-self: center;
+    align-items: center;
     display: flex;
-    align-items: baseline;
     justify-content: center;
     flex-direction: column;
   }
 
-  form > input {
-    display: block;
-  }
 </style>
