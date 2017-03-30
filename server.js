@@ -24,6 +24,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const nextjs = next({ dev })
 const handle = nextjs.getRequestHandler()
 const app = express()
+modules.exports
 
 nextjs.prepare()
 .then(() => {
@@ -33,13 +34,9 @@ nextjs.prepare()
     app.use(bodyParser.text())
     app.use(bodyParser.json({ type: 'Header/json' }))
 
-    app.get('/index', (req, res) => {
-        return app.render(req, res, '/index', req.query)
-    })
+    app.get('/index', (req, res) => app.render(req, res, '/index'))
 
-    app.get('*', (req, res) => {
-        return handle(req, res)
-    })
+    app.get('/', (req, res) => handle(req, res))
 
     app.route('/Header')
         .get(Header.getHeaders)
