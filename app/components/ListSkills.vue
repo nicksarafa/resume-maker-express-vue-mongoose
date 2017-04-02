@@ -1,24 +1,13 @@
 <template>
-    <div class="skill-list">
-        <span class="skill">
-            <span
-                class="skill-title"
-                v-for="skill in skills"
-                :key="skill._id"
-            >
-                {{ skill.name }}
-                <a
-                    class="skill-tag-remove"
-                    @click="deleteSkill(skill._id)"
-                />
-            </span>
-        </span>
-    </div>
+  <div class="skill-list">
+    <span v-for="skill in skills" :key="skill._id" class="skill">
+      <button class="btn-skill" @click="deleteSkill(skill._id)">{{ skill.name }}</button>
+    </span>
+  </div>
 </template>
 <script>
     export default {
       name: 'ListSkills',
-//      props: ['skills'],
       data() {
         return {
           skills: 'skills'
@@ -54,18 +43,18 @@
       }
     }
 </script>
-
 <style>
-    .skill-list {
-        text-align: start;
-    }
+  .btn-skill:hover,
+  .btn-skill:focus {
+    background: rgba(205, 92, 92, 0.1);
+    box-shadow: 0 4px 13px rgba(205, 92, 92, 0.25);
+  }
 
-    .skill-tag-remove {
-        cursor: pointer;
-        font-weight: bold;
-    }
+  .skill {
+    margin-right: 0.65em;
+  }
 
-    .skill a::before {
-        content: " X";
-    }
+  .skill-list {
+    text-align: start;
+  }
 </style>
