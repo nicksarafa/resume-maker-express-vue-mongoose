@@ -14,31 +14,15 @@
         <div class="row">
             <h4>From</h4>
             <div class="inline-dates">
-                <input
-                    name="startMonth"
-                    type="text"
-                    placeholder="Month"
-                >
-                <input
-                    name="startYear"
-                    type="text"
-                    placeholder="Year"
-                >
+                <select-month selectName="startMonth"></select-month>
+                <select-year selectName="startYear"></select-year>
             </div>
         </div>
         <div class="row">
             <h4>To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
             <div class="inline-dates">
-                <input
-                    name="endMonth"
-                    type="text"
-                    placeholder="Month"
-                >
-                <input
-                    name="endYear"
-                    type="text"
-                    placeholder="Year"
-                >
+                <select-month selectName="endMonth"></select-month>
+                <select-year selectName="endYear"></select-year>
             </div>
         </div>
         <input
@@ -49,7 +33,14 @@
     </form>
 </template>
 <script>
+    import SelectMonth from './SelectMonth.vue'
+    import SelectYear from './SelectYear.vue'
+
     export default {
       name: 'AddExperience',
+      components: {
+        SelectMonth,
+        SelectYear,
+      },
     }
 </script>
