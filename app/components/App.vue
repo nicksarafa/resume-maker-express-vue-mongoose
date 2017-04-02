@@ -75,6 +75,7 @@
         </select>
       </form>
 
+      <list-skills></list-skills>
       <add-skill></add-skill>
 
       <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
@@ -84,11 +85,11 @@
 
 <script>
   import AddSkill from './AddSkill.vue'
+  import ListSkills from './ListSkills.vue'
 
   export default {
-    components: { AddSkill },
+    components: {ListSkills, AddSkill },
     name: 'app',
-    data: {},
   }
 </script>
 
