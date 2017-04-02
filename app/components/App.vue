@@ -129,14 +129,4 @@
     flex-direction: column;
   }
 
-  ul {
-    list-style: none;
-    text-align: start;
-  }
-
-  li {
-    font-size: inherit;
-    display: inline-block;
-  }
-
 </style>
