@@ -100,22 +100,7 @@
         >
       </form>
 
-      <!-- Post Languages <form /> -->
-      <form action="/Language" method="POST" target="hiddenFrame">
-        <input
-          name="name"
-          type="text"
-          placeholder="Language"
-        >
-        <select>
-          <option value="Basic">Basic</option>
-          <option value="Conversant">Conversant</option>
-          <option value="Proficent">Proficent</option>
-          <option value="Fluent">Fluent</option>
-          <option value="Native or Bilingual">Native or Bilingual</option>
-        </select>
-      </form>
-
+      <add-language></add-language>
       <add-skill></add-skill>
       <list-skills></list-skills>
 
@@ -127,9 +112,14 @@
 <script>
   import AddSkill from './AddSkill.vue'
   import ListSkills from './ListSkills.vue'
+  import AddLanguage from './AddLanguage.vue'
 
   export default {
-    components: {ListSkills, AddSkill },
+    components: {
+      ListSkills,
+      AddSkill,
+      AddLanguage,
+    },
     name: 'app',
   }
 </script>

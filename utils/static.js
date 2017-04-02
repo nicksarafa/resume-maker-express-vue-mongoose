@@ -14,6 +14,6 @@ const yearsOptions = [ '2017', '2016', '2015', '2014', '2013', '2012', '2011', '
  * levels of language proficiency coupled with Language model
  * @see
  */
-const languageProficiencyOptions = ['Basic', 'Conversant', 'Proficent', 'Fluent', 'Native or bilingual']
+const languageProficiencyOptions = ['Basic', 'Conversant', 'Proficient', 'Fluent', 'Native or Bilingual']
 
 module.exports = { monthsOptions, yearsOptions, languageProficiencyOptions }

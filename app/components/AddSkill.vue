@@ -21,6 +21,7 @@
       methods: {
         addSkill (e) {
           var name = e.target.value
+          console.log(name)
           if (name.trim()) {
             this.$http.post('/Skill', { name })
             this.$store.commit('addSkill', { name })
