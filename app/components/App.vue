@@ -64,14 +64,15 @@
 </script>
 <style>
   body {
-    background-color: rgba(241, 245, 247, .85);
+    background: rgba(241, 245, 247, .85);
     color: rgba(41, 47, 51, 0.8);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
-    line-height: 1.5em;
+    line-height: 2.5em;
   }
 
   button {
+    background: rgba(241, 245, 247, .85);
     border-radius: 0;
     border: 0;
     box-shadow: none;
@@ -86,12 +87,10 @@
   }
 
   button.preview {
-    background: #F6F4EF;
     margin-right: 0.85em;
   }
 
   button.save {
-    background: #EFF6F1;
   }
 
   footer {
@@ -138,7 +137,7 @@
     flex: 1;
     justify-content: flex-start;
     padding-bottom: 1.6153846154em;
-    padding-top: 6.8461538462em;
+    padding-top: 8.8461538462em;
   }
 
   .inline-dates {
@@ -152,7 +151,7 @@
 
   input {
     background: transparent;
-    border-bottom: 0.15em solid #EBEDF0;
+    border-bottom: 0.15em solid rgba(206, 206, 206, 1);
     border-left: none;
     border-right: none;
     border-top: none;
@@ -193,7 +192,6 @@
   section {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6.8461538462em;
     max-width: 610px;
   }
 
@@ -224,6 +222,11 @@
   option,
   select {
     cursor: pointer;
+  }
+
+  button:focus,
+  button:hover {
+    outline: #EBEDF0 auto 0.5em;
   }
 
   :focus {
