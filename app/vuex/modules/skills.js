@@ -1,4 +1,4 @@
-import { ADD_SKILL } from '../mutation-types'
+import { ADD_SKILL } from '../mutations'
 
 const state = {
   added: [],
