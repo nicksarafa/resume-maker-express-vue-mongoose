@@ -75,8 +75,8 @@
         </select>
       </form>
 
-      <list-skills></list-skills>
       <add-skill></add-skill>
+      <list-skills></list-skills>
 
       <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
       <iframe name="hiddenFrame" style="display: none"></iframe>
@@ -126,6 +126,16 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  ul {
+    list-style: none;
+    text-align: start;
+  }
+
+  li {
+    font-size: inherit;
+    display: inline-block;
   }
 
 </style>
