@@ -143,9 +143,10 @@
   }
 
   .inline-dates {
-      flex: 1;
+      align-items: center;
       align-content: flex-end;
       display: flex;
+      flex: 1;
       justify-content: space-around;
   }
 
@@ -194,5 +195,10 @@
       margin-right: auto;
       margin-top: 6.8461538462em;
       max-width: 610px;
+  }
+
+  select,
+  option {
+    cursor: pointer;
   }
 </style>

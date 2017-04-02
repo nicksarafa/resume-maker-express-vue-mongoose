@@ -10,11 +10,7 @@
         <div class="row">
             <h4>From</h4>
             <div class="inline-dates">
-                <input
-                    name="startMonth"
-                    type="text"
-                    placeholder="Month"
-                >
+                <select-month selectName="startMonth"></select-month>
                 <input
                     name="startYear"
                     type="text"
@@ -61,7 +57,10 @@
     </form>
 </template>
 <script>
+    import SelectMonth from './SelectMonth.vue'
+
     export default {
       name: 'AddEducation',
+      components: { SelectMonth },
     }
 </script>
