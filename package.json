@@ -7,7 +7,7 @@
     "node": ">=4.3.2"
   },
   "scripts": {
-    "start": "npm run dev",
+    "start": "node server.js",
     "dev": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack-dev-server --hot",
     "watch:server": "nodemon server.js",
