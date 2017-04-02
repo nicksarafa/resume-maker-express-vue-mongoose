@@ -96,6 +96,7 @@
 <style>
 
   body {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     text-align: center;
   }
