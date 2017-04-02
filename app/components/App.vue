@@ -65,7 +65,7 @@
 <style>
   body {
     background-color: rgba(241, 245, 247, .85);
-    color: rgb(41, 47, 51);
+    color: rgba(41, 47, 51, 0.8);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     line-height: 1.5em;
@@ -75,7 +75,7 @@
     border-radius: 0;
     border: 0;
     box-shadow: none;
-    color: rgba(41, 47, 51, 0.7);
+    color: rgba(41, 47, 51, 0.8);
     cursor: pointer;
     font-size: 0.85em;
     padding: 1em 1.5em;
@@ -86,25 +86,24 @@
   }
 
   button.preview {
-      background: #F6F4EF;
-      margin-right: 0.85em;
+    background: #F6F4EF;
+    margin-right: 0.85em;
   }
 
   button.save {
-      background: #EFF6F1;
+    background: #EFF6F1;
   }
 
   footer {
-      align-items: center;
-      align-self: stretch;
-      background-color: rgba(241, 245, 247, .85);
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      justify-content: flex-start;
-      line-height: 5.8461538462em;
-      padding-left: 5.8461538462em;
-      padding-right: 5.8461538462em;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-start;
+    line-height: 5.8461538462em;
+    padding-left: 5.8461538462em;
+    padding-right: 5.8461538462em;
   }
 
   form {
@@ -137,30 +136,31 @@
   h4.title {
     display: flex;
     flex: 1;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-bottom: 1.6153846154em;
     padding-top: 6.8461538462em;
   }
 
   .inline-dates {
-      align-items: center;
-      align-content: flex-end;
-      display: flex;
-      flex: 1;
-      justify-content: space-around;
+    align-items: center;
+    align-content: flex-end;
+    display: flex;
+    flex: 1;
+    height: 4em;
+    justify-content: space-around;
   }
 
   input {
-      background: transparent;
-      border-bottom: 0.15em solid #EBEDF0;
-      border-left: none;
-      border-right: none;
-      border-top: none;
-      font-family: inherit;
-      font-size: inherit;
-      margin: 1em 0;
-      outline: none;
-      padding: .55em 0;
+    background: transparent;
+    border-bottom: 0.15em solid #EBEDF0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 1em 0;
+    outline: none;
+    padding: .55em 0;
   }
 
   nav {
@@ -191,14 +191,42 @@
   }
 
   section {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 6.8461538462em;
-      max-width: 610px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.8461538462em;
+    max-width: 610px;
   }
 
-  select,
+  select {
+    background-color: transparent;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 0;
+    border-style: none;
+    border-width: 0;
+    color: inherit;
+    font-size: 1em;
+    font-weight: normal;
+    height: 4em;
+  }
+
   option {
+    background-color: rgba(241, 245, 247, .85);
+    color: inherit;
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    min-height: 1.2em;
+    padding: 1em;
+    white-space: pre;
+  }
+
+  option,
+  select {
     cursor: pointer;
+  }
+
+  :focus {
+    outline: -webkit-focus-ring-color none;
   }
 </style>
