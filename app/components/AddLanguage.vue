@@ -1,5 +1,5 @@
 <template>
-    <form id="languageForm" target="hiddenFrame" class="addLanguage">
+    <form id="languageForm" target="hiddenFrame" class="flex-row">
         <input
             id="languageNameInput"
             name="name"
@@ -30,9 +30,3 @@
       },
     }
 </script>
-<style>
-    .addLanguage {
-        flex-direction: row;
-        align-items: center;
-    }
-</style>

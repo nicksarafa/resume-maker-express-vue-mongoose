@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
-// import years from static array util
 const yearsOptions = require('../utils/static').yearsOptions
 
 const EducationSchema = new Schema({

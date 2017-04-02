@@ -1,8 +1,8 @@
 <template>
-    <div>
-
+    <div class="content">
       <!-- Header <form /> -->
       <!-- <form /> targets hiddenFrame to prevent uri redirects -->
+      <h3>Basic</h3>
       <form action="/Header" method="POST" target="hiddenFrame">
         <input
           name="name"
@@ -24,6 +24,7 @@
 
       <!-- Experience <form /> -->
       <!-- <form /> targets hiddenFrame to prevent uri redirects -->
+      <h3>Experience</h3>
       <form action="/Experience" method="POST" target="hiddenFrame">
         <input
           name="organizationName"
@@ -63,43 +64,7 @@
         >
       </form>
 
-      <!-- Education <form /> -->
-      <!-- <form /> targets hiddenFrame to prevent uri redirects -->
-      <!-- @todo edit placeholders so we're not completley ripping off LinkedIn' -->
-      <form action="/Education" method="POST" target="hiddenFrame">
-        <input
-          name="schoolName"
-          type="text"
-          placeholder="School"
-          autofocus
-        >
-        <input
-          name="degree"
-          type="text"
-          placeholder="Degree"
-        >
-        <input
-          name="fieldOfStudy"
-          type="text"
-          placeholder="Field of Study"
-        >
-        <input
-          name="startYear"
-          type="date"
-          placeholder="From Year"
-        >
-        <input
-          name="endYear"
-          type="date"
-          placeholder="To Year (or expected)"
-        >
-        <input
-          name="Description"
-          type="text"
-          placeholder="Activities and societies"
-        >
-      </form>
-
+      <add-education></add-education>
       <add-language></add-language>
       <add-skill></add-skill>
       <list-skills></list-skills>
@@ -113,10 +78,11 @@
   import AddSkill from './AddSkill.vue'
   import ListSkills from './ListSkills.vue'
   import AddLanguage from './AddLanguage.vue'
+  import AddEducation from './AddEducation.vue'
 
   export default {
     components: {
-      ListSkills,
+      AddEducation, ListSkills,
       AddSkill,
       AddLanguage,
     },
@@ -129,7 +95,6 @@
   body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
-    text-align: center;
   }
 
   input {
@@ -153,11 +118,25 @@
   }
 
   form {
-    align-self: center;
-    align-items: center;
+    align-items: stretch;
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  h3 {
+    padding-left: 1em;
+  }
+
+  .flex-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 610px;
   }
 
 </style>
