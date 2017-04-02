@@ -76,7 +76,7 @@
       </form>
 
       <!-- Post Skill <form /> -->
-      <form action="/Skill" method="POST" target="hiddenFrame">
+      <form target="hiddenFrame">
         <input
           autofocus
           autocomplete="off"
@@ -105,6 +105,7 @@
       addSkill (e) {
         var name = e.target.value
         if (name.trim()) {
+          this.$http.post('/Skill', { name })
           this.$store.commit('addSkill', { name })
         }
         e.target.value = ''
