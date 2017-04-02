@@ -1,9 +1,16 @@
 <template>
     <div class="skill-list">
         <span class="skill">
-            <span class="skill-title" v-for="skill in skills">
+            <span
+                class="skill-title"
+                v-for="skill in skills"
+                :key="skill._id"
+            >
                 {{ skill.name }}
-                <a class="skill-tag-remove"></a>
+                <a
+                    class="skill-tag-remove"
+                    @click="deleteSkill(skill._id)"
+                />
             </span>
         </span>
     </div>
@@ -14,10 +21,28 @@
       props: ['skills'],
       methods: {
         getAllSkills: function () {
-          this.$http.get('/Skill').then((response) => {
+          this.$http.get('/Skill', {
+            before(request) {
+              if (this.previousRequest) {
+                this.previousRequest.abort()
+              }
+              this.previousRequest = request
+            }
+          }).then((response) => {
             this.skills = response.data
+          }, response => {
+            console.log(response)
           })
-        }
+        },
+
+        deleteSkill: function (id) {
+          this.$http.delete('/Skill/' + id)
+            .then(response => {
+              this.getAllSkills()
+            }, response => {
+              console.log('Error deleting /Skill/' + id)
+            })
+        },
       },
       mounted: function() {
         this.getAllSkills()
