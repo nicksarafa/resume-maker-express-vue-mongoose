@@ -11,26 +11,36 @@
             type="text"
             placeholder="Title"
         >
-        <input
-            name="startMonth"
-            type="date"
-            placeholder="From Month"
-        >
-        <input
-            name="startYear"
-            type="date"
-            placeholder="From Year"
-        >
-        <input
-            name="endMonth"
-            type="date"
-            placeholder="To Month"
-        >
-        <input
-            name="endYear"
-            type="date"
-            placeholder="To Year"
-        >
+        <div class="row">
+            <h4>From</h4>
+            <div class="inline-dates">
+                <input
+                    name="startMonth"
+                    type="text"
+                    placeholder="Month"
+                >
+                <input
+                    name="startYear"
+                    type="text"
+                    placeholder="Year"
+                >
+            </div>
+        </div>
+        <div class="row">
+            <h4>To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+            <div class="inline-dates">
+                <input
+                    name="endMonth"
+                    type="text"
+                    placeholder="Month"
+                >
+                <input
+                    name="endYear"
+                    type="text"
+                    placeholder="Year"
+                >
+            </div>
+        </div>
         <input
             name="description"
             type="text"

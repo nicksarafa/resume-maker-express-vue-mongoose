@@ -81,7 +81,7 @@
     font-size: inherit;
     margin: 1em 0;
     outline: none;
-    padding: .5em .5em;
+    padding: .5em 0;
   }
 
   button {
@@ -129,14 +129,17 @@
     -webkit-margin-end: 0;
     -webkit-margin-start: 0;
     color: rgba(41, 47, 51, 0.4);
-    display: flex;
-    flex: 1;
     font-size: 0.75em;
     font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  h4.title {
+    display: flex;
+    flex: 1;
     justify-content: flex-end;
     padding-bottom: 1.6153846154em;
     padding-top: 6.8461538462em;
-    text-transform: uppercase;
   }
 
   section {
@@ -178,8 +181,18 @@
   }
 
   .row {
+    align-content: space-around;
     align-items: center;
+    display: flex;
     flex-direction: row;
+    flex: 1;
     justify-content: space-between;
+  }
+
+  .inline-dates {
+    flex: 1;
+    align-content: flex-end;
+    display: flex;
+    justify-content: space-around;
   }
 </style>

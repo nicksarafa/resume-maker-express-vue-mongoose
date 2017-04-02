@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <h4>Good Resume</h4>
+        <h4 class="title">Good Resume</h4>
     </footer>
 </template>
 <script>
