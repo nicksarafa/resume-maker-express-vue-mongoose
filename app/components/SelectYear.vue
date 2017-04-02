@@ -2,7 +2,7 @@
   export default {
     name: 'SelectYear',
     template: '\
-      <select name="{{ props.selectName }}" form="{{ props.selectForm }}" id="{{ props.selectId }}">\
+      <select :name="selectName" :form="selectForm" :id="selectId">\
         <option value="">Year</option>\
         <option v-for="year in years" :value="year"> {{ year }} </option>\
       </select>\

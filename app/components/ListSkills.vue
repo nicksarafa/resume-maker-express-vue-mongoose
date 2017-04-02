@@ -18,7 +18,12 @@
 <script>
     export default {
       name: 'ListSkills',
-      props: ['skills'],
+//      props: ['skills'],
+      data() {
+        return {
+          skills: 'skills'
+        }
+      },
       methods: {
         getAllSkills: function () {
           this.$http.get('/Skill', {
