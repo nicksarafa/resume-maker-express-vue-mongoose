@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-const debug = process.env.NODE_ENV !== 'production'
+import { state, mutations } from './mutations'
 
 Vue.use(Vuex)
-Vue.config.debug = true
 
 export default new Vuex.Store({
-  strict: debug,
+  state,
+  mutations,
 })

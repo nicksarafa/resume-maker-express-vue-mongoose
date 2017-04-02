@@ -78,9 +78,12 @@
       <!-- Post Skill <form /> -->
       <form action="/Skill" method="POST" target="hiddenFrame">
         <input
+          autofocus
+          autocomplete="off"
+          placeholder="Skill"
           name="name"
           type="text"
-          placeholder="Skill"
+          @keyup.enter="addSkill"
         >
       </form>
 
@@ -93,7 +96,20 @@
   export default {
     name: 'app',
     data: {},
-    methods: {},
+    computed: {
+      skills () {
+        return this.$store.state.skills
+      }
+    },
+    methods: {
+      addSkill (e) {
+        var name = e.target.value
+        if (name.trim()) {
+          this.$store.commit('addSkill', { name })
+        }
+        e.target.value = ''
+      },
+    },
   }
 </script>
 
