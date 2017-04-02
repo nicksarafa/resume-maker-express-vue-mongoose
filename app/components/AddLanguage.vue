@@ -1,5 +1,5 @@
 <template>
-    <form id="languageForm" target="hiddenFrame" class="flex-row">
+    <form id="languageForm" target="hiddenFrame" class="row">
         <input
             id="languageNameInput"
             name="name"
