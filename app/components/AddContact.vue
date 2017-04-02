@@ -1,0 +1,34 @@
+<template>
+    <form>
+        <input
+            name="email"
+            type="email"
+            placeholder="Email"
+        >
+        <input
+            name="phone"
+            type="tel"
+            placeholder="Phone"
+        >
+        <input
+            name="website"
+            type="text"
+            placeholder="Website"
+        >
+        <input
+            name="city"
+            type="text"
+            placeholder="City"
+        >
+        <input
+            name="state"
+            type="text"
+            placeholder="State"
+        >
+    </form>
+</template>
+<script>
+    export default {
+      name: 'AddContact'
+    }
+</script>

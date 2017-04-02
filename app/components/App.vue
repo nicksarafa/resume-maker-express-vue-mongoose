@@ -10,8 +10,9 @@
       <add-language></add-language>
       <titler :title="titles[4]"></titler>
       <add-skill></add-skill>
-      <titler :title="titles[5]"></titler>
       <list-skills></list-skills>
+      <titler :title="titles[5]"></titler>
+      <add-contact></add-contact>
       <hidden-frame></hidden-frame>
   </div>
 </template>
@@ -24,6 +25,7 @@
   import AddHeader from './AddHeader.vue'
   import HiddenFrame from './HiddenFrame.vue'
   import Titler from './Titler.vue'
+  import AddContact from './AddContact.vue'
 
   export default {
     name: 'app',
@@ -36,15 +38,17 @@
       AddSkill,
       AddLanguage,
       Titler,
+      AddContact,
     },
     data: function () {
       return {
         titles: [
-          'Basic',
-          'Experience',
+          'General',
+          'Work Experience',
           'Education',
           'Language',
           'Skill',
+          'Contact',
         ],
       }
     },
@@ -52,6 +56,7 @@
 </script>
 <style>
   body {
+    color: rgb(41, 47, 51);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
   }

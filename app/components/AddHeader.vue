@@ -3,18 +3,18 @@
         <input
             name="name"
             type="text"
-            placeholder="Your Name"
+            placeholder="Full Name"
             autofocus
         >
         <input
-            name="email"
-            type="email"
-            placeholder="your@email.com"
+            name="title"
+            type="text"
+            placeholder="Your title"
         >
         <input
-            name="phone"
-            type="tel"
-            placeholder="Phone"
+            name="about"
+            type="text"
+            placeholder="About you"
         >
     </form>
 </template>
