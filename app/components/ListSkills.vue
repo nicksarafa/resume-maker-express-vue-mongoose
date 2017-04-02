@@ -7,10 +7,15 @@
     export default {
       name: 'ListSkills',
       props: ['skills'],
-      created: function() {
-        this.$http.get('/Skill').then((response) => {
-          this.skills = response.data
-        })
+      methods: {
+        getAllSkills: function () {
+          this.$http.get('/Skill').then((response) => {
+            this.skills = response.data
+          })
+        }
+      },
+      mounted: function() {
+        this.getAllSkills()
       }
     }
 </script>
