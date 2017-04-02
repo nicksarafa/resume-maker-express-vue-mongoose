@@ -75,17 +75,7 @@
         </select>
       </form>
 
-      <!-- Post Skill <form /> -->
-      <form target="hiddenFrame">
-        <input
-          autofocus
-          autocomplete="off"
-          placeholder="Skill"
-          name="name"
-          type="text"
-          @keyup.enter="addSkill"
-        >
-      </form>
+      <add-skill></add-skill>
 
       <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
       <iframe name="hiddenFrame" style="display: none"></iframe>
@@ -93,24 +83,12 @@
 </template>
 
 <script>
+  import AddSkill from './AddSkill.vue'
+
   export default {
+    components: { AddSkill },
     name: 'app',
     data: {},
-    computed: {
-      skills () {
-        return this.$store.state.skills
-      }
-    },
-    methods: {
-      addSkill (e) {
-        var name = e.target.value
-        if (name.trim()) {
-          this.$http.post('/Skill', { name })
-          this.$store.commit('addSkill', { name })
-        }
-        e.target.value = ''
-      },
-    },
   }
 </script>
 
