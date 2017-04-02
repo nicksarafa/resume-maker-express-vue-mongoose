@@ -63,6 +63,13 @@
   }
 </script>
 <style>
+  * {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+  }
+
   body {
     background: rgba(241, 245, 247, .85);
     color: rgba(41, 47, 51, 0.8);
@@ -75,11 +82,20 @@
     background: rgba(241, 245, 247, .85);
     border-radius: 0;
     border: 0;
-    box-shadow: none;
-    color: rgba(41, 47, 51, 0.8);
+    box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.10);
+    color: rgba(41, 47, 51, 0.6);
     cursor: pointer;
-    font-size: 0.85em;
+    font-size: inherit;
+    font-weight: bold;
     padding: 1em 1.5em;
+    outline: none;
+    transition: all 0.4s ease-in-out;
+  }
+
+  button:focus,
+  button:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    outline: none;
   }
 
   button:focus {
@@ -222,11 +238,6 @@
   option,
   select {
     cursor: pointer;
-  }
-
-  button:focus,
-  button:hover {
-    outline: #EBEDF0 auto 0.5em;
   }
 
   :focus {
