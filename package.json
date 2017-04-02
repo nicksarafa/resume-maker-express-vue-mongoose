@@ -19,7 +19,8 @@
     "config": "^1.25.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.2",
-    "vue": "^2.2.6"
+    "vue": "^2.2.6",
+    "vuex": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
