@@ -30,6 +30,7 @@
             type="text"
             placeholder="Summary"
         >
+        <button type="submit">Add Experience</button>
     </form>
 </template>
 <script>
