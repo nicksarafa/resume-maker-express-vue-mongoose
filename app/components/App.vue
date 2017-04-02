@@ -71,19 +71,6 @@
     line-height: 1.5em;
   }
 
-  input {
-    background: transparent;
-    border-bottom: 0.15em solid #EBEDF0;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    font-family: inherit;
-    font-size: inherit;
-    margin: 1em 0;
-    outline: none;
-    padding: .5em 0;
-  }
-
   button {
     border-radius: 0;
     border: 0;
@@ -105,6 +92,19 @@
 
   button.save {
       background: #EFF6F1;
+  }
+
+  footer {
+      align-items: center;
+      align-self: stretch;
+      background-color: rgba(241, 245, 247, .85);
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      justify-content: flex-start;
+      line-height: 5.8461538462em;
+      padding-left: 5.8461538462em;
+      padding-right: 5.8461538462em;
   }
 
   form {
@@ -142,11 +142,24 @@
     padding-top: 6.8461538462em;
   }
 
-  section {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 6.8461538462em;
-    max-width: 610px;
+  .inline-dates {
+      flex: 1;
+      align-content: flex-end;
+      display: flex;
+      justify-content: space-around;
+  }
+
+  input {
+      background: transparent;
+      border-bottom: 0.15em solid #EBEDF0;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      font-family: inherit;
+      font-size: inherit;
+      margin: 1em 0;
+      outline: none;
+      padding: .55em 0;
   }
 
   nav {
@@ -164,20 +177,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 9999;
-  }
-
-  footer {
-    align-items: center;
-    align-self: stretch;
-    background-color: rgba(241, 245, 247, .85);
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    justify-content: flex-start;
-    line-height: 5.8461538462em;
-    padding-left: 5.8461538462em;
-    padding-right: 5.8461538462em;
+    z-index: 1;
   }
 
   .row {
@@ -189,10 +189,10 @@
     justify-content: space-between;
   }
 
-  .inline-dates {
-    flex: 1;
-    align-content: flex-end;
-    display: flex;
-    justify-content: space-around;
+  section {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 6.8461538462em;
+      max-width: 610px;
   }
 </style>
