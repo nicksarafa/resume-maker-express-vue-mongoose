@@ -1,5 +1,5 @@
 <template>
-    <form target="hiddenFrame" id="languageForm">
+    <form id="languageForm" target="hiddenFrame" class="addLanguage">
         <input
             id="languageNameInput"
             name="name"
@@ -30,3 +30,9 @@
       },
     }
 </script>
+<style>
+    .addLanguage {
+        flex-direction: row;
+        align-items: center;
+    }
+</style>
