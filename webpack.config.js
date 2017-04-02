@@ -3,8 +3,8 @@
  * for production Vue workflow @see http://vue-loader.vuejs.org/en/workflow/production.html
  */ 
 
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './app/main.js',

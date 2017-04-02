@@ -1,10 +1,10 @@
-let mongoose = require('mongoose')
-let Schema = mongoose.Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 // import years from static array util
-let yearsOptions = require('../utils/static').yearsOptions
+const yearsOptions = require('../utils/static').yearsOptions
 
-let EducationSchema = new Schema({
+const EducationSchema = new Schema({
     schoolName: {
         type: String,
         required: true,

@@ -1,8 +1,8 @@
-let mongoose = require('mongoose')
-let Language = require('../models/Language')
+const mongoose = require('mongoose')
+const Language = require('../models/Language')
 
 function getLanguages(req, res) {
-    let query = Language.find({})
+    const query = Language.find({})
     query.exec((err, Languages) => {
         if(err) res.send(err)
         res.json(Languages)
@@ -10,7 +10,7 @@ function getLanguages(req, res) {
 }
 
 function postLanguage(req, res) {
-    let newLanguage = new Language(req.body)
+    const newLanguage = new Language(req.body)
     newLanguage.save((err, Language) => {
         if(err) res.send(err)
         else res.json({ message: 'Language successfully added!', Language })

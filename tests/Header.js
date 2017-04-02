@@ -1,11 +1,11 @@
 process.env.NODE_ENV = 'test'
 
-let mongoose = require('mongoose')
-let chai = require('chai')
-let chaiHttp = require('chai-http')
-let server = require('../server')
-let should = chai.should()
-let Header = require('../models/Header')
+const mongoose = require('mongoose')
+const chai = require('chai')
+const chaiHttp = require('chai-http')
+const server = require('../server')
+const should = chai.should()
+const Header = require('../models/Header')
 
 chai.use(chaiHttp)
 
@@ -32,7 +32,7 @@ describe('Headers', () => {
 
     describe('/POST Header', () => {
         it('it should not POST an Header without name field', (done) => {
-            let Header = {
+            const Header = {
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890',
             }
@@ -50,7 +50,7 @@ describe('Headers', () => {
         })
 
         it('it should POST an Header ', (done) => {
-            let Header = {
+            const Header = {
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
@@ -72,7 +72,7 @@ describe('Headers', () => {
 
     describe('/GET/:id Header', () => {
         it('it should GET an Header by the given id', (done) => {
-            let header = new Header({
+            const header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
@@ -96,7 +96,7 @@ describe('Headers', () => {
 
     describe('/PUT/:id Header', () => {
         it('it should UPDATE an Header given the id', (done) => {
-            let header = new Header({
+            const header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'
@@ -116,9 +116,9 @@ describe('Headers', () => {
         })
     })
 
-    describe('/DELETE/:id Header', () => {
-        it('it should DELETE an Header given its id', (done) => {
-            let header = new Header({
+    describe('/DEconstE/:id Header', () => {
+        it('it should DEconstE an Header given its id', (done) => {
+            const header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',
                 phone: '123-456-7890'

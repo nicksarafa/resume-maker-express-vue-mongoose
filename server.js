@@ -1,9 +1,9 @@
-let express = require('express')
-let mongoose = require('mongoose')
-let bodyParser = require('body-parser')
-let config = require('config')
-let app = express()
-let port = 3000
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const config = require('config')
+const app = express()
+const port = 3000
 
 /**
  * SERVER
@@ -36,7 +36,7 @@ console.log('Listening on port ' + port + '\nMay the node be with you.')
  * DATABASE
  */
 
-let options = {
+const options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
   greplset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
 }
@@ -51,11 +51,11 @@ mongoose.connection.on('error', console.log.bind(console, 'mongoose connection e
  * ROUTES
  */
 
-let Header = require('./routes/Header')
-let Education = require('./routes/Education')
-let Skill = require('./routes/Skill')
-let Experience = require('./routes/Experience')
-let Language = require('./routes/Language')
+const Header = require('./routes/Header')
+const Education = require('./routes/Education')
+const Skill = require('./routes/Skill')
+const Experience = require('./routes/Experience')
+const Language = require('./routes/Language')
 
 app.route('/Header')
   .get(Header.getHeaders)

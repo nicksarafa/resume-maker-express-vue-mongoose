@@ -1,9 +1,9 @@
-let mongoose = require('mongoose')
-let Schema = mongoose.Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 // import months/years from static array util
-let monthsOptions = require('../utils/static').monthsOptions
-let yearsOptions = require('../utils/static').yearsOptions
+const monthsOptions = require('../utils/static').monthsOptions
+const yearsOptions = require('../utils/static').yearsOptions
 
 /**
  * @todo validate that endYear > startYear
@@ -11,7 +11,7 @@ let yearsOptions = require('../utils/static').yearsOptions
  * @todo introduce countOfMonths to Schema
  * @todo introduce isCurrentEmployer
  */
-let ExperienceSchema = new Schema({
+const ExperienceSchema = new Schema({
     organizationName: {
         type: String,
         required: true,

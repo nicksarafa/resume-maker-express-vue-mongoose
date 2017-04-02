@@ -1,11 +1,11 @@
 process.env.NODE_ENV = 'test'
 
-let mongoose = require('mongoose')
-let chai = require('chai')
-let chaiHttp = require('chai-http')
-let should = chai.should()
-let server = require('../server')
-let Language = require('../models/Language')
+const mongoose = require('mongoose')
+const chai = require('chai')
+const chaiHttp = require('chai-http')
+const should = chai.should()
+const server = require('../server')
+const Language = require('../models/Language')
 
 chai.use(chaiHttp)
 
@@ -31,8 +31,8 @@ describe('Language', () => {
     })
 
     describe('/POST Language', () => {
-        it('it should NOT let you POST without name and proficiency', (done) => {
-           let Language = {
+        it('it should NOT const you POST without name and proficiency', (done) => {
+           const Language = {
             //    name: 'Spanish',
             //    proficiency: 'Proficent',
            }
@@ -52,7 +52,7 @@ describe('Language', () => {
         })
 
         it('it should POST a Language', (done) => {
-            let Language = {
+            const Language = {
                 name: 'Spanish',
                 proficiency: 'Fluent',
             }
@@ -72,7 +72,7 @@ describe('Language', () => {
 
     describe('/GET/:id Language', () => {
         it('it should get a Language given its id', (done) => {
-            let language = new Language({
+            const language = new Language({
                 name: 'Vietnamese',
                 proficiency: 'Conversant',
             })
@@ -92,9 +92,9 @@ describe('Language', () => {
         })
     })
 
-    describe('/DELETE/:id Language', () => {
-        it('it should DELETE a Language given its id', (done) => {
-            let language = new Language({
+    describe('/DEconstE/:id Language', () => {
+        it('it should DEconstE a Language given its id', (done) => {
+            const language = new Language({
                 name: 'JavaScript',
                 proficiency: 'Conversant',
             })
@@ -115,7 +115,7 @@ describe('Language', () => {
 
     describe('/PUT/:id Language', () => {
         it('it should UPDATE a Language given its id', (done) => {
-            let language = new Language({
+            const language = new Language({
                 name: 'Vietnamese',
                 proficiency: 'Conversant',
             })

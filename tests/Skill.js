@@ -1,11 +1,11 @@
 process.env.NODE_ENV = 'test'
 
-let mongoose = require('mongoose')
-let chai = require('chai')
-let chaiHttp = require('chai-http')
-let server = require('../server')
-let should = chai.should()
-let Skill = require('../models/Skill')
+const mongoose = require('mongoose')
+const chai = require('chai')
+const chaiHttp = require('chai-http')
+const server = require('../server')
+const should = chai.should()
+const Skill = require('../models/Skill')
 
 chai.use(chaiHttp)
 
@@ -32,7 +32,7 @@ describe('Skills', () => {
 
     describe('/POST Skill', () => {
         it('it should NOT post a Skill without name field', (done) => {
-            let Skill = { title: 'Hadoop' }
+            const Skill = { title: 'Hadoop' }
             chai.request(server)
             .post('/Skill/')
             .send(Skill)
@@ -47,7 +47,7 @@ describe('Skills', () => {
         })
 
         it('it should post a Skill', (done) => {
-            let Skill = { name: 'JavaScript', }
+            const Skill = { name: 'JavaScript', }
             chai.request(server)
             .post('/Skill/')
             .send(Skill)
@@ -63,7 +63,7 @@ describe('Skills', () => {
 
     describe('/GET/:id Skill', () => {
         it('it should GET a Skill given its id', (done) => {
-            let skill = new Skill({ name: 'Ruby' })
+            const skill = new Skill({ name: 'Ruby' })
             skill.save((err, Skill) => {
                 chai.request(server)
                 .get('/Skill/' + Skill.id)
@@ -81,7 +81,7 @@ describe('Skills', () => {
 
     describe('/PUT/:id Skill', () => {
         it('it should UPDATE a Skill given its id', (done) => {
-            let skill = new Skill({ name: 'Python' })
+            const skill = new Skill({ name: 'Python' })
             skill.save((err, Skill) => {
                 chai.request(server)
                 .put('/Skill/' + Skill.id)
@@ -97,9 +97,9 @@ describe('Skills', () => {
         })
     })
 
-    describe('/DELETE/:id Skill', () => {
-        it('it should DELETE all the skills', (done) => {
-            let skill = new Skill({ name: 'ReactJS' })
+    describe('/DEconstE/:id Skill', () => {
+        it('it should DEconstE all the skills', (done) => {
+            const skill = new Skill({ name: 'ReactJS' })
             skill.save((err, Skill) => {
                 chai.request(server)
                 .delete('/skill/' + Skill.id)

@@ -1,8 +1,8 @@
-let mongoose = require('mongoose')
-let Skill = require('../models/Skill')
+const mongoose = require('mongoose')
+const Skill = require('../models/Skill')
 
 function getSkills(req, res) {
-    let query = Skill.find({})
+    const query = Skill.find({})
     query.exec((err, Skills) => {
         if(err) res.send(err)
         res.json(Skills)
@@ -10,7 +10,7 @@ function getSkills(req, res) {
 }
 
 function postSkill(req, res) {
-    let newSkill = new Skill(req.body)
+    const newSkill = new Skill(req.body)
     newSkill.save((err, Skill) => {
         if(err) res.send(err)
         else res.json({ message: 'Skill successfully added!', Skill })

@@ -1,11 +1,11 @@
 process.env.NODE_ENV = 'test'
 
-let mongoose = require('mongoose')
-let chai = require('chai')
-let chaiHtpp = require('chai-http')
-let server = require('../server')
-let should = chai.should()
-let Education = require('../models/Education')
+const mongoose = require('mongoose')
+const chai = require('chai')
+const chaiHtpp = require('chai-http')
+const server = require('../server')
+const should = chai.should()
+const Education = require('../models/Education')
 
 chai.use(chaiHtpp)
 
@@ -33,7 +33,7 @@ describe('Education', () => {
 
     describe('/POST Education', () => {
         it('it should NOT post Education without schoolName', (done) => {
-            let Education = {
+            const Education = {
                 // schoolName: 'Duke University',
                 degree: 'Bachelor\'s',
                 fieldOfStudy: 'Informatics',
@@ -58,7 +58,7 @@ describe('Education', () => {
 
     describe('/GET/:id Education', () => {
         it('it should GET Education given its id', (done) => {
-            let education = new Education({
+            const education = new Education({
                 schoolName: 'Duke University',
                 degree: 'Bachelor\'s',
                 fieldOfStudy: 'Informatics',
@@ -82,9 +82,9 @@ describe('Education', () => {
         })
     })
 
-    describe('/DELETE/:id Education', () => {
-        it('it should DELETE Education given its id', (done) => {
-            let education = new Education({
+    describe('/DEconstE/:id Education', () => {
+        it('it should DEconstE Education given its id', (done) => {
+            const education = new Education({
                 schoolName: 'Duke University',
                 degree: 'Bachelor\'s',
                 fieldOfStudy: 'Informatics',
@@ -111,7 +111,7 @@ describe('Education', () => {
 
     describe('/PUT/:id Education', () => {
         it('it should UPDATE Education given its id', (done) => {
-            let education = new Education({
+            const education = new Education({
                 schoolName: 'Duke University',
                 degree: 'Bachelor\'s',
                 fieldOfStudy: 'Informatics',

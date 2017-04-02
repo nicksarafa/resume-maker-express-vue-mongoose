@@ -1,11 +1,11 @@
 process.env.NODE_ENV = 'test'
 
-let mongoose = require('mongoose')
-let chai = require('chai')
-let chaiHttp = require('chai-http')
-let server = require('../server')
-let should = chai.should()
-let Experience = require('../models/Experience')
+const mongoose = require('mongoose')
+const chai = require('chai')
+const chaiHttp = require('chai-http')
+const server = require('../server')
+const should = chai.should()
+const Experience = require('../models/Experience')
 
 chai.use(chaiHttp)
 
@@ -32,7 +32,7 @@ describe('Experience', () => {
 
     describe('/POST Experience', () => {
         it('it should NOT POST an Experience without a organizationName or title', (done) => {
-            let Experience = {
+            const Experience = {
                 // organizationName: 'Github',
                 // title: 'DevOps Engineer',
                 startMonth: 'April',
@@ -57,7 +57,7 @@ describe('Experience', () => {
         })
 
         it('it should POST an Experience', (done) => {
-            let Experience = {
+            const Experience = {
                 organizationName: 'Github',
                 title: 'DevOps Engineer',
                 startMonth: 'April',
@@ -81,7 +81,7 @@ describe('Experience', () => {
 
     describe('/GET/:id Experience', () => {
         it('it should retrieve an Experience given its id', (done) => {
-            let experience = new Experience({
+            const experience = new Experience({
                 organizationName: 'Github',
                 title: 'DevOps Engineer',
                 startMonth: 'April',
@@ -108,7 +108,7 @@ describe('Experience', () => {
 
     describe('/PUT/:id Experience', () => {
         it('it should UPDATE an Experience given its id', (done) => {
-            let experience = new Experience({
+            const experience = new Experience({
                 organizationName: 'Github',
                 title: 'DevOps Engineer',
                 startMonth: 'April',
@@ -132,9 +132,9 @@ describe('Experience', () => {
         })
     })
 
-    describe('/DELETE/:id Experience', () => {
-        it('it should DELETE an Experience given its id', (done) => {
-            let experience = new Experience({
+    describe('/DEconstE/:id Experience', () => {
+        it('it should DEconstE an Experience given its id', (done) => {
+            const experience = new Experience({
                 organizationName: 'Github',
                 title: 'DevOps Engineer',
                 startMonth: 'April',
