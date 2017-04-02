@@ -30,7 +30,12 @@
         <input
             name="extracurriculars"
             type="text"
-            placeholder="extracurriculars"
+            placeholder="Extracurricular Activities"
+        >
+        <input
+            name="description"
+            type="text"
+            placeholder="Summary"
         >
         <button type="submit">Add Education</button>
     </form>

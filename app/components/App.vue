@@ -1,136 +1,94 @@
 <template>
     <div class="content">
-      <!-- Header <form /> -->
-      <!-- <form /> targets hiddenFrame to prevent uri redirects -->
-      <h3>Basic</h3>
-      <form action="/Header" method="POST" target="hiddenFrame">
-        <input
-          name="name"
-          type="text"
-          placeholder="Your Name"
-          autofocus
-        >
-        <input
-          name="email"
-          type="email"
-          placeholder="your@email.com"
-        >
-        <input
-          name="phone"
-          type="tel"
-          placeholder="***-***-****"
-        >
-      </form>
-
-      <!-- Experience <form /> -->
-      <!-- <form /> targets hiddenFrame to prevent uri redirects -->
-      <h3>Experience</h3>
-      <form action="/Experience" method="POST" target="hiddenFrame">
-        <input
-          name="organizationName"
-          type="text"
-          placeholder="Organization"
-          autofocus
-        >
-        <input
-          name="title"
-          type="text"
-          placeholder="Title"
-        >
-        <input
-          name="startMonth"
-          type="date"
-          placeholder="From Month"
-        >
-        <input
-          name="startYear"
-          type="date"
-          placeholder="From Year"
-        >
-        <input
-          name="endMonth"
-          type="date"
-          placeholder="To Month"
-        >
-        <input
-          name="endYear"
-          type="date"
-          placeholder="To Year"
-        >
-        <input
-          name="description"
-          type="text"
-          placeholder="Summary"
-        >
-      </form>
-
+      <titler :title="titles[0]"></titler>
+      <add-header></add-header>
+      <titler :title="titles[1]"></titler>
+      <add-experience></add-experience>
+      <titler :title="titles[2]"></titler>
       <add-education></add-education>
+      <titler :title="titles[3]"></titler>
       <add-language></add-language>
+      <titler :title="titles[4]"></titler>
       <add-skill></add-skill>
+      <titler :title="titles[5]"></titler>
       <list-skills></list-skills>
-
-      <!-- Hidden iframe for <from /> to target in order to prevent uri redirects -->
-      <iframe name="hiddenFrame" style="display: none"></iframe>
+      <hidden-frame></hidden-frame>
   </div>
 </template>
-
 <script>
   import AddSkill from './AddSkill.vue'
   import ListSkills from './ListSkills.vue'
   import AddLanguage from './AddLanguage.vue'
   import AddEducation from './AddEducation.vue'
+  import AddExperience from './AddExperience.vue'
+  import AddHeader from './AddHeader.vue'
+  import HiddenFrame from './HiddenFrame.vue'
+  import Titler from './Titler.vue'
 
   export default {
+    name: 'app',
     components: {
-      AddEducation, ListSkills,
+      HiddenFrame,
+      AddHeader,
+      AddExperience,
+      AddEducation,
+      ListSkills,
       AddSkill,
       AddLanguage,
+      Titler,
     },
-    name: 'app',
+    data: function () {
+      return {
+        titles: [
+          'Basic',
+          'Experience',
+          'Education',
+          'Language',
+          'Skill',
+        ],
+      }
+    },
   }
 </script>
-
 <style>
-
   body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 1em;
   }
 
   input {
-    margin: 1em 0;
+    border-bottom: 0.15em solid #EBEDF0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     font-family: inherit;
     font-size: inherit;
-    padding: .5em 1em;
-    border: none;
-    border-bottom: 0.2em solid #4fc08d;
+    margin: 1em 0;
     outline: none;
+    padding: .5em .5em;
   }
 
   button {
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
     cursor: pointer;
     display: inline-block;
-    padding: 1em 2em;
     line-height: 1em;
-    appearance: none;
-    box-shadow: none;
-    border-radius: 0;
+    padding: 1em 2em;
   }
 
   form {
     align-items: stretch;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-  }
-
-  h3 {
-    padding-left: 1em;
+    justify-content: center;
   }
 
   .flex-row {
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .content {
@@ -138,5 +96,4 @@
     margin-right: auto;
     width: 610px;
   }
-
 </style>
