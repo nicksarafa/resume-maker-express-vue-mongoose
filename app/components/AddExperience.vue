@@ -30,7 +30,7 @@
       type="text"
       placeholder="Summary"
     >
-    <button type="submit"></button>
+    <!--<button type="submit"></button>-->
 </form>
 </template>
 <script>

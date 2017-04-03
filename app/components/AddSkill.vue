@@ -6,8 +6,8 @@
       placeholder="Skill"
       name="name"
       type="text"
-      @keyup.enter="addSkill"
     >
+    <!--@keyup.enter="addSkill"-->
   </form>
 </template>
 <script>

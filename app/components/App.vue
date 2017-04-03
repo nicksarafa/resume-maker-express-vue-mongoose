@@ -6,23 +6,26 @@
       <add-header></add-header>
 
       <titler :title="titles[1]"></titler>
-      <button @click.prevent="workCount--">Remove Work</button>
-      <button @click.prevent="workCount++">Add Work</button>
+      <button class="add" @click.prevent="workCount--">Remove Work</button>
       <add-experience v-for="n in workCount" :key="n"></add-experience>
+      <button class="add" @click.prevent="workCount++">Add Work</button>
 
       <titler :title="titles[2]"></titler>
-      <button @click.prevent="educationCount--">Remove Education</button>
-      <button @click.prevent="educationCount++">Add Education</button>
+      <button class="add" @click.prevent="educationCount--">Remove Education</button>
       <add-education v-for="n in educationCount" :key="n"></add-education>
+      <button class="add" @click.prevent="educationCount++">Add Education</button>
 
       <titler :title="titles[3]"></titler>
-      <button @click.prevent="languageCount--">Remove Language</button>
-      <button @click.prevent="languageCount++">Add Language</button>
+      <button class="add" @click.prevent="languageCount--">Remove Language</button>
       <add-language v-for="n in languageCount" :key="n"></add-language>
+      <button class="add" @click.prevent="languageCount++">Add Language</button>
 
       <titler :title="titles[4]"></titler>
-      <add-skill></add-skill>
-      <list-skills></list-skills>
+      <button class="add" @click.prevent="skillCount--">Remove Skill</button>
+      <add-skill v-for="n in skillCount" :key="n"></add-skill>
+      <button class="add" @click.prevent="skillCount++">Add Skill</button>
+
+      <!--<list-skills></list-skills>-->
 
       <titler :title="titles[5]"></titler>
       <add-contact></add-contact>
@@ -51,7 +54,7 @@
       AddHeader,
       AddExperience,
       AddEducation,
-      ListSkills,
+//      ListSkills,
       AddSkill,
       AddLanguage,
       Titler,
@@ -63,6 +66,7 @@
       return {
         educationCount: 1,
         languageCount: 1,
+        skillCount: 1,
         workCount: 1,
         titles: [
           'General',
@@ -84,6 +88,8 @@
     -o-transition:      all 0.2s ease;
   }
 
+  :focus { outline: -webkit-focus-ring-color none; }
+
   body {
     background: rgba(241, 245, 247, .85);
     color: rgba(41, 47, 51, 0.8);
@@ -101,6 +107,7 @@
     cursor: pointer;
     font-size: inherit;
     font-weight: bold;
+    flex: 1;
     padding: 1em 1.5em;
     outline: none;
     transition: all 0.4s ease-in-out;
@@ -112,16 +119,10 @@
     outline: none;
   }
 
-  button:focus {
-    outline: #EBEDF0 auto 0.2em;
-  }
-
-  button.preview {
-    margin-right: 0.85em;
-  }
-
-  button.save {
-  }
+  button:focus { outline: #EBEDF0 auto 0.2em; }
+  button.add {}
+  button.preview { margin-right: 0.85em; }
+  button.save {}
 
   footer {
     align-items: center;
@@ -220,9 +221,14 @@
   }
 
   section {
+    align-items: stretch;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     max-width: 610px;
+    width: 610px;
   }
 
   select {
@@ -249,12 +255,5 @@
     white-space: pre;
   }
 
-  option,
-  select {
-    cursor: pointer;
-  }
-
-  :focus {
-    outline: -webkit-focus-ring-color none;
-  }
+  option, select { cursor: pointer; }
 </style>

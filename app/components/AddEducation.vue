@@ -40,7 +40,7 @@
       type="text"
       placeholder="Summary"
     >
-    <button type="submit">Add Education</button>
+    <!--<button type="submit">Add Education</button>-->
   </form>
 </template>
 <script>

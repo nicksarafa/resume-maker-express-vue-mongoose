@@ -17,7 +17,7 @@
         <option value="Native or Bilingual">Native or Bilingual</option>
       </select>
     </div>
-    <button type="submit" @click="addLanguage">Add Language</button>
+    <!--<button type="submit" @click="addLanguage">Add Language</button>-->
   </form>
 </template>
 <script>
