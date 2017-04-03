@@ -1,24 +1,35 @@
 <template>
-    <div>
-        <navigation></navigation>
-        <section>
-          <titler :title="titles[0]"></titler>
-          <add-header></add-header>
-          <titler :title="titles[1]"></titler>
-          <add-experience></add-experience>
-          <titler :title="titles[2]"></titler>
-          <add-education></add-education>
-          <titler :title="titles[3]"></titler>
-          <add-language></add-language>
-          <titler :title="titles[4]"></titler>
-          <add-skill></add-skill>
-          <list-skills></list-skills>
-          <titler :title="titles[5]"></titler>
-          <add-contact></add-contact>
-        </section>
-        <footer-section></footer-section>
-        <hidden-frame></hidden-frame>
-    </div>
+  <div>
+    <navigation></navigation>
+    <section>
+      <titler :title="titles[0]"></titler>
+      <add-header></add-header>
+
+      <titler :title="titles[1]"></titler>
+      <button @click.prevent="workCount--">Remove Work</button>
+      <button @click.prevent="workCount++">Add Work</button>
+      <add-experience v-for="n in workCount"></add-experience>
+
+      <titler :title="titles[2]"></titler>
+      <button @click.prevent="educationCount--">Remove Education</button>
+      <button @click.prevent="educationCount++">Add Education</button>
+      <add-education v-for="n in educationCount"></add-education>
+
+      <titler :title="titles[3]"></titler>
+      <button @click.prevent="languageCount--">Remove Language</button>
+      <button @click.prevent="languageCount++">Add Language</button>
+      <add-language v-for="n in languageCount"></add-language>
+
+      <titler :title="titles[4]"></titler>
+      <add-skill></add-skill>
+      <list-skills></list-skills>
+
+      <titler :title="titles[5]"></titler>
+      <add-contact></add-contact>
+    </section>
+    <footer-section></footer-section>
+    <hidden-frame></hidden-frame>
+  </div>
 </template>
 <script>
   import AddSkill from './AddSkill.vue'
@@ -48,8 +59,11 @@
       Navigation,
       FooterSection,
     },
-    data: function () {
+    data() {
       return {
+        educationCount: 1,
+        languageCount: 1,
+        workCount: 1,
         titles: [
           'General',
           'Work Experience',
