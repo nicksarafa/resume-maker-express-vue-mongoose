@@ -8,17 +8,17 @@
       <titler :title="titles[1]"></titler>
       <button @click.prevent="workCount--">Remove Work</button>
       <button @click.prevent="workCount++">Add Work</button>
-      <add-experience v-for="n in workCount"></add-experience>
+      <add-experience v-for="n in workCount" :key="n"></add-experience>
 
       <titler :title="titles[2]"></titler>
       <button @click.prevent="educationCount--">Remove Education</button>
       <button @click.prevent="educationCount++">Add Education</button>
-      <add-education v-for="n in educationCount"></add-education>
+      <add-education v-for="n in educationCount" :key="n"></add-education>
 
       <titler :title="titles[3]"></titler>
       <button @click.prevent="languageCount--">Remove Language</button>
       <button @click.prevent="languageCount++">Add Language</button>
-      <add-language v-for="n in languageCount"></add-language>
+      <add-language v-for="n in languageCount" :key="n"></add-language>
 
       <titler :title="titles[4]"></titler>
       <add-skill></add-skill>
