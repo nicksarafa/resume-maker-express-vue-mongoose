@@ -1,10 +1,10 @@
 <template>
-    <footer>
-        <h4 class="title">Good Resume</h4>
-    </footer>
+  <footer>
+    <h4 class="title">Good Resume</h4>
+  </footer>
 </template>
 <script>
-    export default {
-      name: 'FooterSection',
-    }
+  export default {
+    name: 'FooterSection',
+  }
 </script>
