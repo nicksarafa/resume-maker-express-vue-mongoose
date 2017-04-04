@@ -120,13 +120,13 @@
   }
 
   button:focus { outline: #EBEDF0 auto 0.2em; }
-  button.add {}
+  button.add { margin-top: 1em; }
   button.remove {
     align-self: flex-end;
     background-color: #c9cccf;
-    border-radius: 1em;
+    border-radius: 2em;
     color: #fff;
-    font-size: 2em;
+    font-size: 1.4em;
     height: 1em;
     line-height: 0.1em;
     margin-bottom: -0.5em;
