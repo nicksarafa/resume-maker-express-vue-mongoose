@@ -113,7 +113,9 @@ describe('Contact', () => {
       contact.save((err, Contact) => {
         chai.request(server)
           .put('/Contact/' + Contact.id)
-          .send({ email: 'newest@contact.com' })
+          .send({
+            email: 'newest@contact.com'
+          })
           .end((err, res) => {
             res.should.have.status(200)
             res.body.should.be.a('object')

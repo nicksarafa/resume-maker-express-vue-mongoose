@@ -5,11 +5,11 @@ const Schema = mongoose.Schema
  * @todo add optional user website url
  */
 const HeaderSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    about: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  about: String,
 })
 
 module.exports = mongoose.model('Header', HeaderSchema)

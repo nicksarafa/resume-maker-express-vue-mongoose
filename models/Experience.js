@@ -12,31 +12,31 @@ const yearsOptions = require('../utils/static').yearsOptions
  * @todo introduce isCurrentEmployer
  */
 const ExperienceSchema = new Schema({
-    organizationName: {
-        type: String,
-        required: true,
-    },
-    title: {
-        type: String,
-        required: true,
-    },
-    startMonth: {
-        type: String,
-        enum: monthsOptions,
-    },
-    startYear: {
-        type: String,
-        enum: yearsOptions,
-    },
-    endMonth: {
-        type: String,
-        enum: monthsOptions,
-    },
-    endYear: {
-        type: String,
-        enum: yearsOptions,
-    },
-    description: String,
+  organizationName: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  startMonth: {
+    type: String,
+    enum: monthsOptions,
+  },
+  startYear: {
+    type: String,
+    enum: yearsOptions,
+  },
+  endMonth: {
+    type: String,
+    enum: monthsOptions,
+  },
+  endYear: {
+    type: String,
+    enum: yearsOptions,
+  },
+  description: String,
 })
 
 module.exports = mongoose.model('Experience', ExperienceSchema)
