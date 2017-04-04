@@ -33,8 +33,7 @@ describe('Headers', () => {
     describe('/POST Header', () => {
         it('it should not POST an Header without name field', (done) => {
             const Header = {
-                email: 'JohnSnow@gmail.com',
-                phone: '123-456-7890',
+              about: 'Web dev on a mission',
             }
             chai.request(server)
             .post('/Header/')
@@ -52,8 +51,7 @@ describe('Headers', () => {
         it('it should POST an Header ', (done) => {
             const Header = {
                 name: 'John Snow',
-                email: 'JohnSnow@gmail.com',
-                phone: '123-456-7890'
+                about: 'Web dev on a mission',
             }
             chai.request(server)
             .post('/Header/')
@@ -63,8 +61,7 @@ describe('Headers', () => {
                 res.body.should.be.a('object')
                 res.body.should.have.property('message').eql('Header successfully added!')
                 res.body.Header.should.have.property('name')
-                res.body.Header.should.have.property('email')
-                res.body.Header.should.have.property('phone')
+                res.body.Header.should.have.property('about')
                 done()
             })
         })
@@ -74,8 +71,7 @@ describe('Headers', () => {
         it('it should GET an Header by the given id', (done) => {
             const header = new Header({
                 name: 'John Snow',
-                email: 'JohnSnow@gmail.com',
-                phone: '123-456-7890'
+                about: 'Web dev on a mission',
             })
             header.save((err, Header) => {
                 chai.request(server)
@@ -85,8 +81,7 @@ describe('Headers', () => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
                     res.body.should.have.property('name')
-                    res.body.should.have.property('email')
-                    res.body.should.have.property('phone')
+                    res.body.should.have.property('about')
                     res.body.should.have.property('_id').eql(Header.id)
                     done()
                 })
@@ -98,8 +93,7 @@ describe('Headers', () => {
         it('it should UPDATE an Header given the id', (done) => {
             const header = new Header({
                 name: 'John Snow',
-                email: 'JohnSnow@gmail.com',
-                phone: '123-456-7890'
+                about: 'Web dev on a mission',
             })
             header.save((err, Header) => {
                 chai.request(server)
@@ -120,8 +114,7 @@ describe('Headers', () => {
         it('it should DELETE an Header given its id', (done) => {
             const header = new Header({
                 name: 'John Snow',
-                email: 'JohnSnow@gmail.com',
-                phone: '123-456-7890'
+                about: 'Web dev on a mission',
             })
             header.save((err, Header) => {
                 chai.request(server)

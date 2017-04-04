@@ -7,15 +7,11 @@
       autofocus
     >
     <input
-      name="title"
-      type="text"
-      placeholder="Your title"
-    >
-    <input
       name="about"
       type="text"
       placeholder="About you"
     >
+    <button type="submit">Save Header</button>
   </form>
 </template>
 <script>

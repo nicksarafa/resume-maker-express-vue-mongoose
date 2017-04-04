@@ -9,8 +9,7 @@ const HeaderSchema = new Schema({
         type: String,
         required: true,
     },
-    email: String,
-    phone: String,
+    about: String,
 })
 
 module.exports = mongoose.model('Header', HeaderSchema)
