@@ -35,11 +35,11 @@
       type="text"
       placeholder="Extracurricular Activities"
     >
-    <input
+    <textarea
       name="description"
-      type="text"
       placeholder="Summary"
-    >
+      rows="4">
+    </textarea>
     <!--<button type="submit">Add Education</button>-->
   </form>
 </template>

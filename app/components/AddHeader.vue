@@ -6,12 +6,12 @@
       placeholder="Full Name"
       autofocus
     >
-    <input
+    <textarea
       name="about"
-      type="text"
       placeholder="About you"
-    >
-    <button type="submit">Save Header</button>
+      rows="4">
+    </textarea>
+    <!--<button type="submit">Save Header</button>-->
   </form>
 </template>
 <script>

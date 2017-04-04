@@ -256,4 +256,20 @@
   }
 
   option, select { cursor: pointer; }
+
+  textarea {
+    -webkit-appearance: textarea;
+    -webkit-rtl-ordering: logical;
+    background-color: transparent;
+    border: 0.15em solid rgba(206, 206, 206, 1);
+    cursor: auto;
+    flex-direction: column;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em;
+    resize: auto;
+    user-select: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 </style>

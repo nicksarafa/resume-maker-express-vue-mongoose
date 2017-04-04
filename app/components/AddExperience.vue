@@ -25,11 +25,11 @@
         <select-year selectName="endYear"></select-year>
       </div>
     </div>
-    <input
+    <textarea
       name="description"
-      type="text"
       placeholder="Summary"
-    >
+      rows="4">
+    </textarea>
     <!--<button type="submit"></button>-->
 </form>
 </template>
