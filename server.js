@@ -56,6 +56,7 @@ const Education = require('./routes/Education')
 const Skill = require('./routes/Skill')
 const Experience = require('./routes/Experience')
 const Language = require('./routes/Language')
+const Contact = require('./routes/Contact')
 
 app.route('/Header')
   .get(Header.getHeaders)
@@ -96,6 +97,14 @@ app.route('/Language/:id')
   .get(Language.getLanguage)
   .delete(Language.deleteLanguage)
   .put(Language.updateLanguage)
+
+app.route('/Contact')
+  .get(Contact.getContacts)
+  .post(Contact.postContact)
+app.route('/Contact/:id')
+  .get(Contact.getContact)
+  .delete(Contact.deleteContact)
+  .put(Contact.updateContact)
 
 /************************************************************************/
 

@@ -13,7 +13,6 @@ describe('Education', () => {
 
     beforeEach((done) => {
         Education.remove({}, (err) => {
-            console.log('beforeEach Education run')
             done()
         })
     })
