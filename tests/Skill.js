@@ -97,8 +97,8 @@ describe('Skills', () => {
         })
     })
 
-    describe('/DEconstE/:id Skill', () => {
-        it('it should DEconstE all the skills', (done) => {
+    describe('/DELETE/:id Skill', () => {
+        it('it should DELETE all the skills', (done) => {
             const skill = new Skill({ name: 'ReactJS' })
             skill.save((err, Skill) => {
                 chai.request(server)

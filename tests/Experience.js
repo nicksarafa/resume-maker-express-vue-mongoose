@@ -132,8 +132,8 @@ describe('Experience', () => {
         })
     })
 
-    describe('/DEconstE/:id Experience', () => {
-        it('it should DEconstE an Experience given its id', (done) => {
+    describe('/DELETE/:id Experience', () => {
+        it('it should DELETE an Experience given its id', (done) => {
             const experience = new Experience({
                 organizationName: 'Github',
                 title: 'DevOps Engineer',

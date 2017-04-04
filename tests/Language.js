@@ -92,8 +92,8 @@ describe('Language', () => {
         })
     })
 
-    describe('/DEconstE/:id Language', () => {
-        it('it should DEconstE a Language given its id', (done) => {
+    describe('/DELETE/:id Language', () => {
+        it('it should DELETE a Language given its id', (done) => {
             const language = new Language({
                 name: 'JavaScript',
                 proficiency: 'Conversant',

@@ -116,8 +116,8 @@ describe('Headers', () => {
         })
     })
 
-    describe('/DEconstE/:id Header', () => {
-        it('it should DEconstE an Header given its id', (done) => {
+    describe('/DELETE/:id Header', () => {
+        it('it should DELETE an Header given its id', (done) => {
             const header = new Header({
                 name: 'John Snow',
                 email: 'JohnSnow@gmail.com',

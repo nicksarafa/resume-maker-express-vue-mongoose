@@ -81,8 +81,8 @@ describe('Education', () => {
         })
     })
 
-    describe('/DEconstE/:id Education', () => {
-        it('it should DEconstE Education given its id', (done) => {
+    describe('/DELETE/:id Education', () => {
+        it('it should DELETE Education given its id', (done) => {
             const education = new Education({
                 schoolName: 'Duke University',
                 degree: 'Bachelor\'s',
