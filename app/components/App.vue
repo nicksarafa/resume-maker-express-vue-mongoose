@@ -6,22 +6,22 @@
       <add-header></add-header>
 
       <titler :title="titles[1]"></titler>
-      <button class="add" @click.prevent="workCount--">Remove Work</button>
+      <button class="remove" @click.prevent="workCount--">-</button>
       <add-experience v-for="n in workCount" :key="n"></add-experience>
       <button class="add" @click.prevent="workCount++">Add Work</button>
 
       <titler :title="titles[2]"></titler>
-      <button class="add" @click.prevent="educationCount--">Remove Education</button>
+      <button class="remove" @click.prevent="educationCount--">-</button>
       <add-education v-for="n in educationCount" :key="n"></add-education>
       <button class="add" @click.prevent="educationCount++">Add Education</button>
 
       <titler :title="titles[3]"></titler>
-      <button class="add" @click.prevent="languageCount--">Remove Language</button>
+      <button class="remove" @click.prevent="languageCount--">-</button>
       <add-language v-for="n in languageCount" :key="n"></add-language>
       <button class="add" @click.prevent="languageCount++">Add Language</button>
 
       <titler :title="titles[4]"></titler>
-      <button class="add" @click.prevent="skillCount--">Remove Skill</button>
+      <button class="remove" @click.prevent="skillCount--">-</button>
       <add-skill v-for="n in skillCount" :key="n"></add-skill>
       <button class="add" @click.prevent="skillCount++">Add Skill</button>
 
@@ -121,6 +121,19 @@
 
   button:focus { outline: #EBEDF0 auto 0.2em; }
   button.add {}
+  button.remove {
+    align-self: flex-end;
+    background-color: #c9cccf;
+    border-radius: 1em;
+    color: #fff;
+    font-size: 2em;
+    height: 1em;
+    line-height: 0.1em;
+    margin-bottom: -0.5em;
+    margin-right: -0.5em;
+    padding: 0;
+    width: 1em;
+  }
   button.preview { margin-right: 0.85em; }
   button.save {}
 
