@@ -6,22 +6,18 @@
       <add-header></add-header>
 
       <titler :title="titles[1]"></titler>
-      <button class="add" @click.prevent="workCount--">Remove Work</button>
       <add-experience v-for="n in workCount" :key="n"></add-experience>
       <button class="add" @click.prevent="workCount++">Add Work</button>
 
       <titler :title="titles[2]"></titler>
-      <button class="add" @click.prevent="educationCount--">Remove Education</button>
       <add-education v-for="n in educationCount" :key="n"></add-education>
       <button class="add" @click.prevent="educationCount++">Add Education</button>
 
       <titler :title="titles[3]"></titler>
-      <button class="add" @click.prevent="languageCount--">Remove Language</button>
       <add-language v-for="n in languageCount" :key="n"></add-language>
       <button class="add" @click.prevent="languageCount++">Add Language</button>
 
       <titler :title="titles[4]"></titler>
-      <button class="add" @click.prevent="skillCount--">Remove Skill</button>
       <add-skill v-for="n in skillCount" :key="n"></add-skill>
       <button class="add" @click.prevent="skillCount++">Add Skill</button>
 
@@ -120,7 +116,20 @@
   }
 
   button:focus { outline: #EBEDF0 auto 0.2em; }
-  button.add {}
+  button.add { margin-top: 1em; }
+  button.remove {
+    align-self: flex-end;
+    background-color: #c9cccf;
+    border-radius: 2em;
+    color: #fff;
+    font-size: 1.4em;
+    height: 1em;
+    line-height: 0.1em;
+    margin-right: -1.25em;
+    margin-top: -0.5em;
+    padding: 0;
+    width: 1em;
+  }
   button.preview { margin-right: 0.85em; }
   button.save {}
 
@@ -138,9 +147,12 @@
 
   form {
     align-items: stretch;
+    border: 0.1em solid rgba(206, 206, 206, 1);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 3em;
+    padding: 0 1em;
   }
 
   h3 {
@@ -167,7 +179,6 @@
     display: flex;
     flex: 1;
     justify-content: flex-start;
-    padding-bottom: 1.6153846154em;
     padding-top: 8.8461538462em;
   }
 
@@ -182,15 +193,12 @@
 
   input {
     background: transparent;
-    border-bottom: 0.15em solid rgba(206, 206, 206, 1);
-    border-left: none;
-    border-right: none;
-    border-top: none;
+    border: none;
     font-family: inherit;
     font-size: inherit;
-    margin: 1em 0;
+    height: 3em;
     outline: none;
-    padding: .55em 0;
+    padding: 0;
   }
 
   nav {
@@ -261,12 +269,13 @@
     -webkit-appearance: textarea;
     -webkit-rtl-ordering: logical;
     background-color: transparent;
-    border: 0.15em solid rgba(206, 206, 206, 1);
+    border: none;
     cursor: auto;
     flex-direction: column;
     font: inherit;
     line-height: 1.5em;
-    padding: 0.5em;
+    margin: 1em 0;
+    padding: 0;
     resize: auto;
     user-select: text;
     white-space: pre-wrap;
