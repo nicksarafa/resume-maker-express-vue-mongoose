@@ -1,20 +1,13 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-import VueResource from 'vue-resource'
 import App from './components/App.vue'
-import { state, mutations } from './vuex/mutations'
+import VueResource from 'vue-resource'
+import store from './vuex'
 
-Vue.use(Vuex)
 Vue.use(VueResource)
 
-const store = new Vuex.Store({
-  state,
-  mutations,
-})
-
 new Vue({
-  http: { root: '/'},
   store,
+  http: { root: '/'},
   el: '#app',
   render: h => h(App)
 })
