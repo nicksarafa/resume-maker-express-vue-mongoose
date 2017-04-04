@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form action="/Contact" method="POST" target="hiddenFrame">
     <input
       name="email"
       type="email"
@@ -25,6 +25,7 @@
       type="text"
       placeholder="State"
     >
+    <!--<button type="submit">Save</button>-->
   </form>
 </template>
 <script>
