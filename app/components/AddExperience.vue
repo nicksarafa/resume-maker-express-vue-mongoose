@@ -34,8 +34,8 @@
 </form>
 </template>
 <script>
-  import SelectMonth from './SelectMonth.vue'
-  import SelectYear from './SelectYear.vue'
+  import SelectMonth from './helpers/SelectMonth.vue'
+  import SelectYear from './helpers/SelectYear.vue'
 
   export default {
     name: 'AddExperience',

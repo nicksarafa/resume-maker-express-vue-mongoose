@@ -3,7 +3,7 @@
     <navigation></navigation>
     <section>
       <titler :title="titles[0]"></titler>
-      <add-header></add-header>
+      <general></general>
 
       <titler :title="titles[1]"></titler>
       <add-experience v-for="n in workCount" :key="n"></add-experience>
@@ -19,44 +19,44 @@
 
       <titler :title="titles[3]"></titler>
       <add-language></add-language>
-      <list-language></list-language>
+      <list-languages></list-languages>
 
       <titler :title="titles[5]"></titler>
-      <add-contact></add-contact>
+      <contact></contact>
     </section>
-    <footer-section></footer-section>
+    <footer></footer>
     <hidden-frame></hidden-frame>
   </div>
 </template>
 <script>
-  import AddSkill from './AddSkill.vue'
-  import ListSkills from './ListSkills.vue'
-  import AddLanguage from './AddLanguage.vue'
+  import AddSkill from './Skill/AddSkill.vue'
+  import ListSkills from './Skill/ListSkills.vue'
+  import AddLanguage from './Language/AddLanguage.vue'
+  import ListLanguages from './Language/ListLanguages.vue'
   import AddEducation from './AddEducation.vue'
   import AddExperience from './AddExperience.vue'
-  import AddHeader from './AddHeader.vue'
-  import HiddenFrame from './HiddenFrame.vue'
-  import Titler from './Titler.vue'
-  import AddContact from './AddContact.vue'
-  import Navigation from './Navigation.vue'
-  import FooterSection from './FooterSection.vue'
-  import ListLanguage from './ListLanguages.vue'
+  import General from './static/General.vue'
+  import HiddenFrame from './helpers/HiddenFrame.vue'
+  import Titler from './helpers/Titler.vue'
+  import Contact from './static/Contact.vue'
+  import Navigation from './static/Navigation.vue'
+  import FooterSection from './static/Footer.vue'
 
   export default {
     name: 'app',
     components: {
+      General,
       HiddenFrame,
-      AddHeader,
       AddExperience,
       AddEducation,
       ListSkills,
       AddSkill,
       AddLanguage,
       Titler,
-      AddContact,
+      Contact,
       Navigation,
       FooterSection,
-      ListLanguage,
+      ListLanguages,
     },
     data() {
       return {

@@ -1,7 +1,6 @@
 <template>
   <div>
     <form action="/Education" method="POST" target="hiddenFrame" class="educationForm">
-      <remove-component></remove-component>
       <input
           name="schoolName"
           type="text"
@@ -47,14 +46,12 @@
   </div>
 </template>
 <script>
-  import SelectMonth from './SelectMonth.vue'
-  import SelectYear from './SelectYear.vue'
-  import RemoveComponent from './RemoveComponent.vue'
+  import SelectMonth from './helpers/SelectMonth.vue'
+  import SelectYear from './helpers/SelectYear.vue'
 
   export default {
     name: 'AddEducation',
     components: {
-      RemoveComponent,
       SelectMonth,
       SelectYear,
     },

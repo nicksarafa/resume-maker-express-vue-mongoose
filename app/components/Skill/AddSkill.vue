@@ -1,14 +1,12 @@
 <template>
-  <form target="hiddenFrame">
-    <input
-      autofocus
-      autocomplete="off"
-      placeholder="Skill"
-      name="name"
-      type="text"
-      v-on:keyup.enter="addSkill"
-    >
-  </form>
+  <input
+    autofocus
+    autocomplete="off"
+    placeholder="Skill"
+    name="name"
+    type="text"
+    v-on:keyup.enter="addSkill"
+  >
 </template>
 <script>
   export default {
