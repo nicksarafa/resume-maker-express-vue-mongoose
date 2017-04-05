@@ -14,11 +14,11 @@
       <button class="add" @click.prevent="educationCount++">Add Education</button>
 
       <titler :title="titles[4]"></titler>
-      <add-skill v-for="n in skillCount" :key="n"></add-skill>
+      <add-skill></add-skill>
       <list-skills></list-skills>
 
       <titler :title="titles[3]"></titler>
-      <add-language v-for="n in languageCount" :key="n"></add-language>
+      <add-language></add-language>
       <list-language></list-language>
 
       <titler :title="titles[5]"></titler>
@@ -61,8 +61,6 @@
     data() {
       return {
         educationCount: 1,
-        languageCount: 1,
-        skillCount: 1,
         workCount: 1,
         titles: [
           'General',
