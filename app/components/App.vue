@@ -19,7 +19,7 @@
 
       <titler :title="titles[3]"></titler>
       <add-language v-for="n in languageCount" :key="n"></add-language>
-      <button class="add" @click.prevent="languageCount++">Add Language</button>
+      <list-language></list-language>
 
       <titler :title="titles[5]"></titler>
       <add-contact></add-contact>
@@ -40,6 +40,7 @@
   import AddContact from './AddContact.vue'
   import Navigation from './Navigation.vue'
   import FooterSection from './FooterSection.vue'
+  import ListLanguage from './ListLanguages.vue'
 
   export default {
     name: 'app',
@@ -55,6 +56,7 @@
       AddContact,
       Navigation,
       FooterSection,
+      ListLanguage,
     },
     data() {
       return {
@@ -199,6 +201,19 @@
     padding: 0;
   }
 
+  .list-item {
+    cursor: pointer;
+    margin-top: 0.65em;
+    padding-left: 1em;
+    text-transform: capitalize;
+  }
+
+  .list-item:hover,
+  .list-item:focus {
+    background: rgba(205, 92, 92, 0.1);
+    box-shadow: 0 4px 13px rgba(205, 92, 92, 0.25);
+  }
+
   nav {
     align-items: center;
     align-self: stretch;
@@ -261,17 +276,6 @@
     font-size: 1em;
     font-weight: normal;
     height: 4em;
-  }
-
-  .btn-skill {
-    margin-right: 0.65em;
-    margin-top: 0.65em;
-  }
-
-  .btn-skill:hover,
-  .btn-skill:focus {
-    background: rgba(205, 92, 92, 0.1);
-    box-shadow: 0 4px 13px rgba(205, 92, 92, 0.25);
   }
 
   textarea {
