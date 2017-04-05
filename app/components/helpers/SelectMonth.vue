@@ -2,7 +2,7 @@
   export default {
     name: 'SelectMonth',
     template: '\
-      <select :name="selectName" :form="selectForm" :id="selectId">\
+      <select :name="selectName" :id="selectId">\
         <option value="">Month</option>\
         <option v-for="month in months" :value="month"> {{ month }} </option>\
       </select>\

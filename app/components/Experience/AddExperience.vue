@@ -1,12 +1,14 @@
 <template>
   <form action="/Experience" method="POST" target="hiddenFrame">
     <input
+      id="organizationName"
       name="organizationName"
       type="text"
       placeholder="Organization"
       autofocus
     >
     <input
+      id="title"
       name="title"
       type="text"
       placeholder="Title"
@@ -26,6 +28,7 @@
       </div>
     </div>
     <textarea
+      id="description"
       name="description"
       placeholder="Summary"
       rows="4">
@@ -34,8 +37,8 @@
 </form>
 </template>
 <script>
-  import SelectMonth from './helpers/SelectMonth.vue'
-  import SelectYear from './helpers/SelectYear.vue'
+  import SelectMonth from '../helpers/SelectMonth.vue'
+  import SelectYear from '../helpers/SelectYear.vue'
 
   export default {
     name: 'AddExperience',
