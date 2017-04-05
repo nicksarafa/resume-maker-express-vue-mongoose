@@ -6,12 +6,12 @@
       <general></general>
 
       <titler :title="titles[1]"></titler>
-      <add-experience v-for="n in workCount" :key="n"></add-experience>
-      <button class="add" @click.prevent="workCount++">Add Work</button>
+      <add-experience></add-experience>
+      <list-experiences></list-experiences>
 
       <titler :title="titles[2]"></titler>
-      <add-education v-for="n in educationCount" :key="n"></add-education>
-      <button class="add" @click.prevent="educationCount++">Add Education</button>
+      <add-education></add-education>
+      <list-educations></list-educations>
 
       <titler :title="titles[4]"></titler>
       <add-skill></add-skill>
@@ -33,14 +33,16 @@
   import ListSkills from './Skill/ListSkills.vue'
   import AddLanguage from './Language/AddLanguage.vue'
   import ListLanguages from './Language/ListLanguages.vue'
-  import AddEducation from './AddEducation.vue'
-  import AddExperience from './AddExperience.vue'
+  import AddEducation from './Education/AddEducation.vue'
+  import AddExperience from './Experience/AddExperience.vue'
   import General from './static/General.vue'
   import HiddenFrame from './helpers/HiddenFrame.vue'
   import Titler from './helpers/Titler.vue'
   import Contact from './static/Contact.vue'
   import Navigation from './static/Navigation.vue'
   import Foot from './static/Foot.vue'
+  import ListEducations from './Education/ListEducations.vue'
+  import ListExperiences from './Experience/ListExperiences.vue'
 
   export default {
     name: 'app',
@@ -57,6 +59,8 @@
       Navigation,
       Foot,
       ListLanguages,
+      ListEducations,
+      ListExperiences,
     },
     data() {
       return {

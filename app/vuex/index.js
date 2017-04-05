@@ -13,9 +13,86 @@ const store = new Vuex.Store({
   state: {
     skills: [],
     languages: [],
+    educations: [],
+    experiences: [],
   },
 
   actions: {
+    ADD_EXPERIENCE: function ({ commit }, { organizationName, title, startMonth, startYear, endMonth, endYear, description, }) {
+      axios.post('/Experience', { organizationName, title, startMonth, startYear, endMonth, endYear, description, })
+        .then((res) => {
+          commit('ADD_EXPERIENCE', {
+            organizationName: res.data.Experience.organizationName,
+            title: res.data.Experience.title,
+            startMonth: res.data.Experience.startMonth,
+            startYear: res.data.Experience.startYear,
+            endMonth: res.data.Experience.endMonth,
+            endYear: res.data.Experience.endYear,
+            description: res.data.Experience.description,
+            _id: res.data.Experience._id,
+          })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    LOAD_EXPERIENCE_LIST: function ({ commit }) {
+      axios.get('/Experience')
+        .then((res) => {
+          commit('SET_EXPERIENCE_LIST', { list: res.data })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    DELETE_EXPERIENCE: function ({ commit }, targetId) {
+      axios.delete('/Experience/' + targetId)
+        .then((res) => {
+          commit('DELETE_EXPERIENCE', { _id: targetId })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    ADD_EDUCATION: function ({ commit }, { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, }) {
+      axios.post('/Education', { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, })
+        .then((res) => {
+          console.log(res)
+          commit('ADD_EDUCATION', {
+            schoolName: res.data.Education.schoolName,
+            startMonth: res.data.Education.startMonth,
+            startYear: res.data.Education.startYear,
+            endMonth: res.data.Education.endMonth,
+            endYear: res.data.Education.endYear,
+            degree: res.data.Education.degree,
+            fieldOfStudy: res.data.Education.fieldOfStudy,
+            extracurriculars: res.data.Education.extracurriculars,
+            description: res.data.Education.description,
+            _id: res.data.Education._id,
+          })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    LOAD_EDUCATION_LIST: function ({ commit }) {
+      axios.get('/Education')
+        .then((res) => {
+          commit('SET_EDUCATION_LIST', { list: res.data })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    DELETE_EDUCATION: function ({ commit }, targetId) {
+      axios.delete('/Education/' + targetId)
+        .then((res) => {
+          commit('DELETE_EDUCATION', { _id: targetId })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
     ADD_LANGUAGE: function ({ commit }, { name, proficiency }) {
       axios.post('/Language', { name, proficiency })
         .then((res) => {
@@ -79,6 +156,32 @@ const store = new Vuex.Store({
   },
 
   mutations: {
+    ADD_EXPERIENCE: (state, { organizationName, title, startMonth, startYear, endMonth, endYear, description, _id }) => {
+      state.experiences.unshift({ organizationName, title, startMonth, startYear, endMonth, endYear, description, _id })
+    },
+
+    SET_EXPERIENCE_LIST: (state, { list }) => {
+      state.experiences = list.reverse()
+    },
+
+    DELETE_EXPERIENCE: (state, { _id }) => {
+      let index = state.experiences.findIndex(x => x._id === _id)
+      state.experiences.splice(index, 1)
+    },
+
+    ADD_EDUCATION: (state, { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, _id }) => {
+      state.educations.unshift({ schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, _id })
+    },
+
+    SET_EDUCATION_LIST: (state, { list }) => {
+      state.educations = list.reverse()
+    },
+
+    DELETE_EDUCATION: (state, { _id }) => {
+      let index = state.educations.findIndex(x => x._id === _id)
+      state.educations.splice(index, 1)
+    },
+
     ADD_LANGUAGE: (state, { name, proficiency, _id }) => {
       state.languages.unshift({ name, proficiency, _id })
     },
