@@ -21,7 +21,7 @@
       <add-skill v-for="n in skillCount" :key="n"></add-skill>
       <button class="add" @click.prevent="skillCount++">Add Skill</button>
 
-      <!--<list-skills></list-skills>-->
+      <list-skills></list-skills>
 
       <titler :title="titles[5]"></titler>
       <add-contact></add-contact>
@@ -50,7 +50,7 @@
       AddHeader,
       AddExperience,
       AddEducation,
-//      ListSkills,
+      ListSkills,
       AddSkill,
       AddLanguage,
       Titler,

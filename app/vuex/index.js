@@ -3,17 +3,33 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+  debug: true,
+
   state: {
     skills: [],
   },
 
-  actions: {},
+  actions: {
+    LOAD_SKILL_LIST: function ({ commit }) {
+      axios.get('/Skill')
+        .then((response) => {
+          commit('SET_SKILL_LIST', { list: response.data })
+        }, (err) => {
+          console.log(err)
+      })
+    },
+  },
 
   mutations: {
+    SET_SKILL_LIST: (state, { list }) => {
+      state.skills = list
+    },
+
     addSkill (state, { name }) {
       state.skills.push({
         name,

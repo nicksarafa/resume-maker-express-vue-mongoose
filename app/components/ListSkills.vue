@@ -1,46 +1,53 @@
 <template>
   <div class="skill-list">
-    <span v-for="skill in skills" :key="skill._id" class="skill">
-      <button class="btn-skill" @click="deleteSkill(skill._id)">{{ skill.name }}</button>
+    <span
+      v-for="skill in skills"
+      :key="skill._id"
+      class="skill">
+      <button
+        class="btn-skill">
+          {{ skill.name }}
+      </button>
     </span>
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'ListSkills',
-    data() {
-      return {
-        skills: 'skills'
-      }
+    computed: mapState([ 'skills' ]),
+    mounted: function () {
+      this.$store.dispatch('LOAD_SKILL_LIST')
     },
-    methods: {
-      getAllSkills: function () {
-        this.$http.get('/Skill', {
-          before(request) {
-            if (this.previousRequest) {
-              this.previousRequest.abort()
-            }
-            this.previousRequest = request
-          }
-        }).then((response) => {
-          this.skills = response.data
-        }, response => {
-          console.log(response)
-        })
-      },
-
-      deleteSkill: function (id) {
-        this.$http.delete('/Skill/' + id)
-          .then(response => {
-            this.getAllSkills()
-          }, response => {
-            console.log('Error deleting /Skill/' + id)
-          })
-      },
-    },
-    mounted: function() {
-      this.getAllSkills()
-    }
+//    methods: {
+//      getAllSkills: function () {
+//        this.$http.get('/Skill', {
+//          before(request) {
+//            if (this.previousRequest) {
+//              this.previousRequest.abort()
+//            }
+//            this.previousRequest = request
+//          }
+//        }).then((response) => {
+//          this.skills = response.data
+//        }, response => {
+//          console.log(response)
+//        })
+//      },
+//
+//      deleteSkill: function (id) {
+//        this.$http.delete('/Skill/' + id)
+//          .then(response => {
+//            this.getAllSkills()
+//          }, response => {
+//            console.log('Error deleting /Skill/' + id)
+//          })
+//      },
+//    },
+//    mounted: function() {
+//      this.getAllSkills()
+//    }
   }
 </script>
 <style>
