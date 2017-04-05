@@ -17,8 +17,26 @@ const store = new Vuex.Store({
   },
 
   actions: {
+    ADD_EXPERIENCE: function ({ commit }, { organizationName, title, startMonth, startYear, endMonth, endYear, description, }) {
+      axios.post('/Experience', { organizationName, title, startMonth, startYear, endMonth, endYear, description, })
+        .then((res) => {
+          console.log(res)
+          commit('ADD_EXPERIENCE', {
+            organizationName: res.data.Experience.organizationName,
+            title: res.data.Experience.title,
+            startMonth: res.data.Experience.startMonth,
+            startYear: res.data.Experience.startYear,
+            endMonth: res.data.Experience.endMonth,
+            endYear: res.data.Experience.endYear,
+            description: res.data.Experience.description,
+            _id: res.data.Experience._id,
+          })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
     ADD_EDUCATION: function ({ commit }, { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, }) {
-      console.log(startMonth, startYear, endMonth, endYear)
       axios.post('/Education', { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, })
         .then((res) => {
           console.log(res)
@@ -120,8 +138,12 @@ const store = new Vuex.Store({
   },
 
   mutations: {
+    ADD_EXPERIENCE: (state, { organizationName, title, startMonth, startYear, endMonth, endYear, description, _id }) => {
+      state.educations.unshift({ organizationName, title, startMonth, startYear, endMonth, endYear, description, _id })
+    },
+
     ADD_EDUCATION: (state, { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, _id }) => {
-      state.educations.unshift({ schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, _id})
+      state.educations.unshift({ schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, _id })
     },
 
     SET_EDUCATION_LIST: (state, { list }) => {
