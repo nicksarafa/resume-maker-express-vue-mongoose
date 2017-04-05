@@ -13,15 +13,13 @@
       <add-education v-for="n in educationCount" :key="n"></add-education>
       <button class="add" @click.prevent="educationCount++">Add Education</button>
 
+      <titler :title="titles[4]"></titler>
+      <add-skill v-for="n in skillCount" :key="n"></add-skill>
+      <list-skills></list-skills>
+
       <titler :title="titles[3]"></titler>
       <add-language v-for="n in languageCount" :key="n"></add-language>
       <button class="add" @click.prevent="languageCount++">Add Language</button>
-
-      <titler :title="titles[4]"></titler>
-      <add-skill v-for="n in skillCount" :key="n"></add-skill>
-      <button class="add" @click.prevent="skillCount++">Add Skill</button>
-
-      <!--<list-skills></list-skills>-->
 
       <titler :title="titles[5]"></titler>
       <add-contact></add-contact>
@@ -50,7 +48,7 @@
       AddHeader,
       AddExperience,
       AddEducation,
-//      ListSkills,
+      ListSkills,
       AddSkill,
       AddLanguage,
       Titler,
@@ -219,6 +217,19 @@
     z-index: 1;
   }
 
+  option {
+    background-color: rgba(241, 245, 247, .85);
+    color: inherit;
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    min-height: 1.2em;
+    padding: 1em;
+    white-space: pre;
+  }
+
+  option, select { cursor: pointer; }
+
   .row {
     align-content: space-around;
     align-items: center;
@@ -252,18 +263,16 @@
     height: 4em;
   }
 
-  option {
-    background-color: rgba(241, 245, 247, .85);
-    color: inherit;
-    display: block;
-    font-size: 1em;
-    font-weight: normal;
-    min-height: 1.2em;
-    padding: 1em;
-    white-space: pre;
+  .btn-skill {
+    margin-right: 0.65em;
+    margin-top: 0.65em;
   }
 
-  option, select { cursor: pointer; }
+  .btn-skill:hover,
+  .btn-skill:focus {
+    background: rgba(205, 92, 92, 0.1);
+    box-shadow: 0 4px 13px rgba(205, 92, 92, 0.25);
+  }
 
   textarea {
     -webkit-appearance: textarea;
