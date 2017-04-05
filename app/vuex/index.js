@@ -18,7 +18,10 @@ const store = new Vuex.Store({
     ADD_NEW_SKILL: function ({ commit }, { name }) {
       axios.post('/Skill', { name })
         .then((res) => {
-          commit('ADD_SKILL', { name: res.data.Skill.name })
+          commit('ADD_SKILL', {
+            name: res.data.Skill.name,
+            _id: res.data.Skill._id,
+          })
         }, (err) => {
           console.log(err)
       })
@@ -34,7 +37,6 @@ const store = new Vuex.Store({
     },
 
     DELETE_SKILL: function ({ commit }, targetId) {
-      console.log('/Skill/' + targetId)
       axios.delete('/Skill/' + targetId)
         .then((res) => {
           commit('DELETE_SKILL', { _id: targetId })
@@ -45,10 +47,8 @@ const store = new Vuex.Store({
   },
 
   mutations: {
-    ADD_SKILL: (state, { name }) => {
-      state.skills.unshift({
-        name,
-      })
+    ADD_SKILL: (state, { name, _id }) => {
+      state.skills.unshift({ name, _id, })
     },
 
     SET_SKILL_LIST: (state, { list }) => {
@@ -56,7 +56,8 @@ const store = new Vuex.Store({
     },
 
     DELETE_SKILL: (state, { _id }) => {
-      state.skills.splice(state.skills.find(x => x._id === _id), 1) // should use _lodash, or naw?
+      let index = state.skills.findIndex(x => x._id === _id)
+      state.skills.splice(index, 1)
     },
   },
 

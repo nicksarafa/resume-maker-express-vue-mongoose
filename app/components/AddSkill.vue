@@ -6,7 +6,7 @@
       placeholder="Skill"
       name="name"
       type="text"
-      @keyup.enter="addSkill"
+      v-on:keyup.enter.prevent="addSkill"
     >
   </form>
 </template>
