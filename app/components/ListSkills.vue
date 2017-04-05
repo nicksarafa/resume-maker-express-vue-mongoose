@@ -4,21 +4,26 @@
       v-for="skill in skills"
       :key="skill._id"
       class="skill">
-      <button
-        class="btn-skill">
-          {{ skill.name }}
-      </button>
+      <button :id="skill._id" :key="skill._id" class="btn-skill" v-on:click="deleteSkill">{{ skill.name }}</button>
     </span>
   </div>
 </template>
 <script>
   import { mapState } from 'vuex'
+  import axios from 'axios'
 
   export default {
     name: 'ListSkills',
     computed: mapState([ 'skills' ]),
     mounted: function () {
       this.$store.dispatch('LOAD_SKILL_LIST')
+    },
+    methods: {
+      deleteSkill: function(e) {
+        const targetId = e.currentTarget.id
+        console.log(targetId)
+        this.$store.dispatch('DELETE_SKILL', targetId)
+      }
     },
 //    methods: {
 //      getAllSkills: function () {

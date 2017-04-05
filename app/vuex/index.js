@@ -32,6 +32,16 @@ const store = new Vuex.Store({
           console.log(err)
       })
     },
+
+    DELETE_SKILL: function ({ commit }, targetId) {
+      console.log('/Skill/' + targetId)
+      axios.delete('/Skill/' + targetId)
+        .then((res) => {
+          commit('DELETE_SKILL', { _id: targetId })
+        }, (err) => {
+          console.log(err)
+      })
+    }
   },
 
   mutations: {
@@ -45,9 +55,9 @@ const store = new Vuex.Store({
       state.skills = list.reverse()
     },
 
-    // deleteSkill (state, { todo }) {
-    //   state.skills.splice(state.skills.indexOf(todo), 1)
-    // },
+    DELETE_SKILL: (state, { _id }) => {
+      state.skills.splice(state.skills.find(x => x._id === _id), 1) // should use _lodash, or naw?
+    },
   },
 
   getters: {},
