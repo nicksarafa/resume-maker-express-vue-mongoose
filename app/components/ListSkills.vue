@@ -1,13 +1,13 @@
 <template>
-  <div class="skill-list">
-    <button
+  <div>
+    <div
       v-for="skill in skills"
       :id="skill._id"
       :key="skill._id"
-      class="btn-skill"
+      class="list-item"
       v-on:click="deleteSkill">
         {{ skill.name }}
-    </button>
+    </div>
   </div>
 </template>
 <script>

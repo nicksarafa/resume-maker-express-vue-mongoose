@@ -7,9 +7,10 @@
         type="text"
         placeholder="Add Language"
         autocomplete="off"
+        style="flex: 1;"
       >
       <select name="proficiency" form="languageForm" id="dropSelectLanguage">
-        <option value="">Language</option>
+        <option value="">Level</option>
         <option value="Basic">Basic</option>
         <option value="Conversant">Conversant</option>
         <option value="Proficient">Proficient</option>
@@ -17,7 +18,7 @@
         <option value="Native or Bilingual">Native or Bilingual</option>
       </select>
     </div>
-    <!--<button type="submit" @click="addLanguage">Add Language</button>-->
+    <button type="submit" @click="addLanguage">Add Language</button>
   </form>
 </template>
 <script>
@@ -27,7 +28,7 @@
       addLanguage() {
         let name = document.getElementById('languageNameInput').value
         let proficiency = document.getElementById('dropSelectLanguage').value
-        this.$http.post('/Language', { name, proficiency })
+        this.$store.dispatch('ADD_LANGUAGE', { name, proficiency })
       }
     },
   }
