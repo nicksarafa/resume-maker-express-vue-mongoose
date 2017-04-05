@@ -17,8 +17,9 @@
     name: 'AddSkill',
     methods: {
       addSkill: function (e) {
-        var name = e.target.value
+        const name = e.target.value
         this.$store.dispatch('ADD_NEW_SKILL', { name })
+        e.target.value = ''
       },
     },
   }
