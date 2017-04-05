@@ -6,13 +6,11 @@
       placeholder="Skill"
       name="name"
       type="text"
-      v-on:keyup.enter.prevent="addSkill"
+      v-on:keyup.enter="addSkill"
     >
   </form>
 </template>
 <script>
-  import axios from 'axios'
-
   export default {
     name: 'AddSkill',
     methods: {
