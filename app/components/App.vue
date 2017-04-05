@@ -6,8 +6,8 @@
       <general></general>
 
       <titler :title="titles[1]"></titler>
-      <add-experience v-for="n in workCount" :key="n"></add-experience>
-      <button class="add" @click.prevent="workCount++">Add Work</button>
+      <add-experience></add-experience>
+      <list-experiences></list-experiences>
 
       <titler :title="titles[2]"></titler>
       <add-education></add-education>
@@ -42,6 +42,7 @@
   import Navigation from './static/Navigation.vue'
   import Foot from './static/Foot.vue'
   import ListEducations from './Education/ListEducations.vue'
+  import ListExperiences from './Experience/ListExperiences.vue'
 
   export default {
     name: 'app',
@@ -59,6 +60,7 @@
       Foot,
       ListLanguages,
       ListEducations,
+      ListExperiences,
     },
     data() {
       return {

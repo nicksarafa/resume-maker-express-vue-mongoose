@@ -14,13 +14,13 @@ const store = new Vuex.Store({
     skills: [],
     languages: [],
     educations: [],
+    experiences: [],
   },
 
   actions: {
     ADD_EXPERIENCE: function ({ commit }, { organizationName, title, startMonth, startYear, endMonth, endYear, description, }) {
       axios.post('/Experience', { organizationName, title, startMonth, startYear, endMonth, endYear, description, })
         .then((res) => {
-          console.log(res)
           commit('ADD_EXPERIENCE', {
             organizationName: res.data.Experience.organizationName,
             title: res.data.Experience.title,
@@ -31,6 +31,24 @@ const store = new Vuex.Store({
             description: res.data.Experience.description,
             _id: res.data.Experience._id,
           })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    LOAD_EXPERIENCE_LIST: function ({ commit }) {
+      axios.get('/Experience')
+        .then((res) => {
+          commit('SET_EXPERIENCE_LIST', { list: res.data })
+        }, (err) => {
+          console.log(err)
+        })
+    },
+
+    DELETE_EXPERIENCE: function ({ commit }, targetId) {
+      axios.delete('/Experience/' + targetId)
+        .then((res) => {
+          commit('DELETE_EXPERIENCE', { _id: targetId })
         }, (err) => {
           console.log(err)
         })
@@ -139,7 +157,16 @@ const store = new Vuex.Store({
 
   mutations: {
     ADD_EXPERIENCE: (state, { organizationName, title, startMonth, startYear, endMonth, endYear, description, _id }) => {
-      state.educations.unshift({ organizationName, title, startMonth, startYear, endMonth, endYear, description, _id })
+      state.experiences.unshift({ organizationName, title, startMonth, startYear, endMonth, endYear, description, _id })
+    },
+
+    SET_EXPERIENCE_LIST: (state, { list }) => {
+      state.experiences = list.reverse()
+    },
+
+    DELETE_EXPERIENCE: (state, { _id }) => {
+      let index = state.experiences.findIndex(x => x._id === _id)
+      state.experiences.splice(index, 1)
     },
 
     ADD_EDUCATION: (state, { schoolName, startMonth, startYear, endMonth, endYear, degree, fieldOfStudy, extracurriculars, description, _id }) => {
