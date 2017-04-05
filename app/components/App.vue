@@ -24,7 +24,7 @@
       <titler :title="titles[5]"></titler>
       <contact></contact>
     </section>
-    <footer></footer>
+    <foot></foot>
     <hidden-frame></hidden-frame>
   </div>
 </template>
@@ -40,7 +40,7 @@
   import Titler from './helpers/Titler.vue'
   import Contact from './static/Contact.vue'
   import Navigation from './static/Navigation.vue'
-  import FooterSection from './static/Footer.vue'
+  import Foot from './static/Foot.vue'
 
   export default {
     name: 'app',
@@ -55,7 +55,7 @@
       Titler,
       Contact,
       Navigation,
-      FooterSection,
+      Foot,
       ListLanguages,
     },
     data() {
