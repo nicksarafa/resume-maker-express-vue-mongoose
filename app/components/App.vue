@@ -2,6 +2,10 @@
   <div>
     <navigation></navigation>
     <section>
+      <titler :title="titles[4]"></titler>
+      <add-skill v-for="n in skillCount" :key="n"></add-skill>
+      <button class="add" @click.prevent="skillCount++">Add Skill</button>
+
       <titler :title="titles[0]"></titler>
       <add-header></add-header>
 
@@ -17,9 +21,9 @@
       <add-language v-for="n in languageCount" :key="n"></add-language>
       <button class="add" @click.prevent="languageCount++">Add Language</button>
 
-      <titler :title="titles[4]"></titler>
-      <add-skill v-for="n in skillCount" :key="n"></add-skill>
-      <button class="add" @click.prevent="skillCount++">Add Skill</button>
+      <!--<titler :title="titles[4]"></titler>-->
+      <!--<add-skill v-for="n in skillCount" :key="n"></add-skill>-->
+      <!--<button class="add" @click.prevent="skillCount++">Add Skill</button>-->
 
       <list-skills></list-skills>
 

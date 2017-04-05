@@ -6,26 +6,19 @@
       placeholder="Skill"
       name="name"
       type="text"
+      @keyup.enter="addSkill"
     >
-    <!--@keyup.enter="addSkill"-->
   </form>
 </template>
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'AddSkill',
-    computed: {
-      skills () {
-        return this.$store.state.skills
-      }
-    },
     methods: {
-      addSkill (e) {
+      addSkill: function (e) {
         var name = e.target.value
-        if (name.trim()) {
-          this.$http.post('/Skill', { name })
-          this.$store.commit('addSkill', { name })
-        }
-        e.target.value = ''
+        this.$store.dispatch('ADD_NEW_SKILL', { name })
       },
     },
   }

@@ -15,6 +15,14 @@ const store = new Vuex.Store({
   },
 
   actions: {
+    ADD_NEW_SKILL: function ({ commit }, { name }) {
+      axios.post('/Skill', { name })
+        .then((response) => {
+          commit('ADD_SKILL', { name: response.data.name })
+        }, (err) => {
+          console.log(err)
+      })
+    },
     LOAD_SKILL_LIST: function ({ commit }) {
       axios.get('/Skill')
         .then((response) => {
@@ -26,16 +34,21 @@ const store = new Vuex.Store({
   },
 
   mutations: {
+    ADD_SKILL: (state, { name }) => {
+      state.skills.push({
+        name,
+      })
+    },
     SET_SKILL_LIST: (state, { list }) => {
       state.skills = list
     },
 
-    addSkill (state, { name }) {
-      state.skills.push({
-        name,
-        done: false
-      })
-    },
+    // addSkill (state, { name }) {
+    //   state.skills.push({
+    //     name,
+    //     done: false
+    //   })
+    // },
 
     deleteSkill (state, { todo }) {
       state.skills.splice(state.skills.indexOf(todo), 1)
