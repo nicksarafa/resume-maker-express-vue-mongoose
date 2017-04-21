@@ -1,3 +1,3 @@
 {
-    "DBHost": "mongodb://neo:2jRZ2KJA7JPmxNwnpP2PX7ELcf4QgqLnDbaMYZyXD94kEfi2xvarkoPNZbBWBz4J@ds011281.mlab.com:11281/biography-bot"
+    "DBHost": TEST_DB_URL
 }
